@@ -13,7 +13,7 @@ export const receiveCurrentUser = function(currentUser){
 export const receiveErrors = errors => {
   return{
     type: RECEIVE_SESSION_ERRORS,
-    errors
+    errors: errors
   };
 };
 
