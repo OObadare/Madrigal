@@ -42,4 +42,4 @@ class LoginModal extends React.Component {
   }
 }
 
-export default Modal;
+export default LoginModal;
