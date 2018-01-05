@@ -30,6 +30,7 @@ class SessionForm extends React.Component {
 
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const user = this.state;
     if (this.state.type === "signuppath") {
@@ -102,7 +103,7 @@ class SessionForm extends React.Component {
             <br/>
             {this.emailInput()}
             <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" onClick={this.handleSubmit}/>
           </div>
         </form>
       </div>

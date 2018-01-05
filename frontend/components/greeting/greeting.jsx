@@ -26,7 +26,7 @@ class Greeting extends React.Component {
     } else {
       return (
         <hgroup className="header-group">
-          <h2 className="header-name">Hi, {currentUser.username}!</h2>
+          <h2 className="header-name">Hi, {this.props.currentUser.username}!</h2>
           <button className="header-button" onClick={this.props.logout}>Log Out</button>
         </hgroup>
       )
