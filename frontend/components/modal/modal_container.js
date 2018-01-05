@@ -1,10 +1,9 @@
-import LoginModal from './login_modal';
+import Modal from './modal';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { showModal, hideModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     component: state.modals.component,
     visible: Boolean(state.modals.component)
@@ -13,11 +12,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    hide: () => dispatch(hideModal())
+
+    hideModal: () => dispatch(hideModal())
   };
 };
 
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginModal));
+)(Modal));
