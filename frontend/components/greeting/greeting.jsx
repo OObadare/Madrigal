@@ -10,8 +10,8 @@ class Greeting extends React.Component {
     this.handleModal = this.handleModal.bind(this);
   }
 
-  handleModal() {
-    this.props.show(<SessionFormContainer/>);
+  handleModal(e) {
+    this.props.show(<SessionFormContainer formType={e.currentTarget.id}/>);
   }
 
   render() {

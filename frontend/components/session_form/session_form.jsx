@@ -8,9 +8,13 @@ class SessionForm extends React.Component {
       username: '',
       password: '',
       email: '',
+      type: this.props.formType
     };
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.emailInput = this.emailInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
@@ -24,19 +28,24 @@ class SessionForm extends React.Component {
     });
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   const user = this.state;
-  //   this.props.processForm(user);
-  // }
 
-  navLink() {
-    if (this.props.formType === 'login') {
-      return <Link to="/signup">sign up instead</Link>;
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = this.state;
+    if (this.state.type === "signuppath") {
+      this.props.signup(user);
     } else {
-      return <Link to="/login">log in instead</Link>;
+      this.props.login(user);
     }
   }
+
+  // navLink() {
+  //   if (this.props.formType === 'login') {
+  //     return <Link to="/signup">sign up instead</Link>;
+  //   } else {
+  //     return <Link to="/login">log in instead</Link>;
+  //   }
+  // }
 
   renderErrors() {
     return(
@@ -48,6 +57,22 @@ class SessionForm extends React.Component {
         ))}
       </ul>
     );
+  }
+
+  emailInput () {
+    if (this.state.type === "signuppath") {
+      return (
+        <label>Email:
+          <input type="email"
+            value={this.state.email}
+            onChange={this.update('email')}
+            className="login-input"
+          />
+        </label>
+      )
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -75,18 +100,11 @@ class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            <label>Email:
-              <input type="email"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </label>
+            {this.emailInput()}
             <br/>
             <input type="submit" value="Submit" />
           </div>
         </form>
-        {this.navLink()}
       </div>
     );
   }
