@@ -9,7 +9,7 @@ class SessionForm extends React.Component {
       password: '',
       email: '',
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,11 +24,11 @@ class SessionForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
-    this.props.processForm(user);
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   const user = this.state;
+  //   this.props.processForm(user);
+  // }
 
   navLink() {
     if (this.props.formType === 'login') {
@@ -53,10 +53,9 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <form className="login-form-box">
           Welcome to Madrigal!
           <br/>
-          Please {this.props.formType} or {this.navLink()}
           {this.renderErrors()}
           <div className="login-form">
             <br/>
@@ -87,6 +86,7 @@ class SessionForm extends React.Component {
             <input type="submit" value="Submit" />
           </div>
         </form>
+        {this.navLink()}
       </div>
     );
   }
