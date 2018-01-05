@@ -28,11 +28,11 @@ class LoginModal extends React.Component {
     };
 
     return (
-      <div className="backdrop" onClick={this.props.hide} style=>
-        <div className="modal" onclick{(e) => e.stopPropogation()} style=>
+      <div className="backdrop" onClick={this.props.hide} style="backdropStyle">
+        <div className="modal" onclick={(e) => e.stopPropogation()} style="modalStyle">
           {this.props.component}
           <div className="footer">
-            <button onClick={this.props.onClose}>
+            <button onClick={this.props.hide}>
               Close
             </button>
           </div>

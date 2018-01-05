@@ -1,7 +1,7 @@
 import LoginModal from './login_modal';
-
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router';
+import { showModal, hideModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -17,6 +17,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export default withRouter(connect(
-  mapStatetoProps,
+  mapStateToProps,
   mapDispatchToProps
 )(LoginModal));
