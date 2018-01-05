@@ -13,5 +13,6 @@ export const showModal = (component) => {
 export const hideModal = () => {
   return {
     type: HIDE_MODAL,
+    component: ""
   };
 };

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { showModal, hideModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     component: state.modals.component,
     visible: Boolean(state.modals.component)

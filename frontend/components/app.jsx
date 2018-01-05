@@ -16,6 +16,7 @@ const App = () => (
     <header>
       <h1>Madrigal</h1>
       <GreetingContainer />
+      <ModalContainer />
     </header>
     <Switch>
       <Route path="/login" component={SessionFormContainer} />
