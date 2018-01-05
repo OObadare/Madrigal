@@ -16,7 +16,7 @@
 
 body {
   background-color: #eee;
-  font-family: proxima-nova, sans-serif;
+  font-family: 'Montserrat';
   font-style: normal;
 }
 
@@ -28,6 +28,9 @@ header {
   justify-content: space-between;
   color: white;
   height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header nav {
@@ -45,6 +48,11 @@ header nav a{
 
 #loginpath{
   padding: 5px 10px;
+  background-color: rgb(47, 54, 74);
+  border: 1px solid rgb(47, 54, 74);
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 #signuppath {
@@ -52,6 +60,9 @@ header nav a{
   border-radius: 15px;
   padding: 5px 10px;
   border-color: rgb(0, 149, 218);
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 #backdrop {
