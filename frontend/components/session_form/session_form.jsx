@@ -38,6 +38,7 @@ class SessionForm extends React.Component {
     } else {
       this.props.login(user);
     }
+    this.props.hideModal();
   }
 
   // navLink() {
