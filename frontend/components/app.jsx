@@ -13,11 +13,11 @@ import {
 
 const App = () => (
   <div>
+    <ModalContainer />
     <header>
       <h1>Madrigal</h1>
       <GreetingContainer />
     </header>
-    <ModalContainer />
     <Switch>
       <Route path="/login" component={SessionFormContainer} />
       <Route path="/signup" component={SessionFormContainer} />

@@ -7,8 +7,7 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      email: '',
-      type: this.props.formType
+      email: ''
     };
     this.emailInput = this.emailInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,24 +29,15 @@ class SessionForm extends React.Component {
 
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     const user = this.state;
-    if (this.state.type === "signuppath") {
+    if (this.props.formType === "signuppath") {
       this.props.signup(user);
     } else {
       this.props.login(user);
     }
     this.props.hideModal();
   }
-
-  // navLink() {
-  //   if (this.props.formType === 'login') {
-  //     return <Link to="/signup">sign up instead</Link>;
-  //   } else {
-  //     return <Link to="/login">log in instead</Link>;
-  //   }
-  // }
 
   renderErrors() {
     return(
@@ -62,15 +52,14 @@ class SessionForm extends React.Component {
   }
 
   emailInput () {
-    if (this.state.type === "signuppath") {
+    if (this.props.formType === "signuppath") {
       return (
-        <label>Email:
-          <input type="email"
+          <input id="emailinput" type="email"
             value={this.state.email}
             onChange={this.update('email')}
             className="login-input"
+            placeholder="Email"
           />
-        </label>
       )
     } else {
       return null;
@@ -83,24 +72,24 @@ class SessionForm extends React.Component {
         <form className="login-form-box">
           Welcome to Madrigal!
           <br/>
+          We're happy to have you!
+          <br/>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
-            <label>Username:
-              <input type="text"
+              <input id = "usernameinput" type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className="login-input"
+                placeholder="Username"
               />
-            </label>
             <br/>
-            <label>Password:
-              <input type="password"
+              <input id="passwordinput" type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
+                placeholder="Password"
               />
-            </label>
             <br/>
             {this.emailInput()}
             <br/>

@@ -9,11 +9,11 @@ class Modal extends React.Component {
     return (
       <div id="backdrop" onClick={this.props.hideModal}>
         <div id="modal" onClick={(e) => e.stopPropagation()}>
+          <button onClick={this.props.hideModal}>
+          </button>
+          <div id="loginimage"></div>
           {this.props.component}
           <div className="footer">
-            <button onClick={this.props.hideModal}>
-              Close
-            </button>
           </div>
         </div>
       </div>
