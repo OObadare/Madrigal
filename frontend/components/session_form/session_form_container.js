@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     login: user => dispatch(login(user)),
     signup: user => dispatch(signup(user)),
-    hideModal: () => dispatch(hideModal())
+    hideModal: () => dispatch(hideModal()),
+    show: (component) => dispatch(showModal(component))
   };
 };
 

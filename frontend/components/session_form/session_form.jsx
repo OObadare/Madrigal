@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import SessionFormContainer from '../session_form/session_form_container';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,8 +10,10 @@ class SessionForm extends React.Component {
       password: '',
       email: ''
     };
+    this.handleModal = this.handleModal.bind(this);
     this.emailInput = this.emailInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.logsignswap = this.swapLogSign.bind(this);
   }
 
 
@@ -37,6 +40,32 @@ class SessionForm extends React.Component {
       this.props.login(user);
     }
     this.props.hideModal();
+  }
+
+  swapLogSign() {
+    if (this.props.formType === "signuppath") {
+      return (
+          <div className="swaplogsign" onClick={this.handleModal}>
+            Already have an account? Sign in instead!
+          </div>
+      )
+    } else {
+      return (
+        <div className="swaplogsign" onClick={this.handleModal}>
+          Don't have an account? Sign up instead!
+        </div>
+      )
+    }
+  }
+
+
+  handleModal(e) {
+    e.preventDefault();
+    if (this.props.formType ==="loginpath"){
+      this.props.show(<SessionFormContainer formType="signuppath"/>);
+    } else {
+      this.props.show(<SessionFormContainer formType="loginpath"/>);
+    }
   }
 
   renderErrors() {
@@ -96,6 +125,9 @@ class SessionForm extends React.Component {
             <input type="submit" value="Submit" onClick={this.handleSubmit}/>
           </div>
         </form>
+        <div id="swapcontainer">
+          {this.swapLogSign()}
+        </div>
       </div>
     );
   }

@@ -98,6 +98,7 @@ header nav a{
 
 .login-form-box {
   padding-top: 100px;
+  height: 355px;
 }
 
 #modal button {
@@ -122,6 +123,24 @@ header nav a{
   margin-bottom: 15px;
   border: 1px solid lightgrey;
   padding: 5px 5px 5px 55px;
+}
+
+#swapcontainer{
+  position: relative;
+  height: 0px;
+}
+.swaplogsign {
+  position: absolute;
+  bottom: 0px;
+  background-color: lightgray;
+  height: 50px;
+  width: 400px;
+  bottom: -10px;
+  left: 400px;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+
 }
 
 #usernameinput {
