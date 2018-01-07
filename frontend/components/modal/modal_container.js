@@ -6,7 +6,8 @@ import { showModal, hideModal } from '../../actions/modal_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     component: state.modals.component,
-    visible: Boolean(state.modals.component)
+    visible: Boolean(state.modals.component),
+    errors: state.errors.session
   };
 };
 

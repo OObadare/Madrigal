@@ -3,8 +3,9 @@ import { showModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+const mapStateToProps = ({ session, errors }) => ({
+  currentUser: session.currentUser,
+  errors: errors
 });
 
 const mapDispatchToProps = dispatch => ({

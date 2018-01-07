@@ -10,7 +10,7 @@ class SessionForm extends React.Component {
       password: '',
       email: ''
     };
-    this.handleModal = this.handleModal.bind(this);
+    this.swapModal = this.swapModal.bind(this);
     this.emailInput = this.emailInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.logsignswap = this.swapLogSign.bind(this);
@@ -45,13 +45,13 @@ class SessionForm extends React.Component {
   swapLogSign() {
     if (this.props.formType === "signuppath") {
       return (
-          <div className="swaplogsign" onClick={this.handleModal}>
+          <div className="swaplogsign" onClick={this.swapModal}>
             Already have an account? Sign in instead!
           </div>
       )
     } else {
       return (
-        <div className="swaplogsign" onClick={this.handleModal}>
+        <div className="swaplogsign" onClick={this.swapModal}>
           Don't have an account? Sign up instead!
         </div>
       )
@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
   }
 
 
-  handleModal(e) {
+  swapModal(e) {
     e.preventDefault();
     if (this.props.formType ==="loginpath"){
       this.props.show(<SessionFormContainer formType="signuppath"/>);
@@ -69,15 +69,18 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors) {
+      this.props.show(<SessionFormContainer formType={this.props.formType}/>)
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   emailInput () {
