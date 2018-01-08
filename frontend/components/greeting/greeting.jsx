@@ -6,13 +6,25 @@ import SessionFormContainer from '../session_form/session_form_container';
 class Greeting extends React.Component {
   constructor (props) {
     super(props);
+    this.state = {
+      errors: this.props.errors.session,
+      prevComponent: ""
+    };
     this.handleModal = this.handleModal.bind(this);
-    debugger
   }
-
   handleModal(e) {
     this.props.show(<SessionFormContainer formType={e.currentTarget.id}/>);
+    this.setState({
+      prevComponent: e.currentTarget.id
+    });
   }
+
+  // //componentDidUpdate isn't working, work on this later
+  // componentWillUpdate() {
+  //   if ((this.state.errors !== null) && (!this.props.currentUser)) {
+  //     this.props.show(<SessionFormContainer formType={this.state.prevComponent}/>);
+  //   }
+  // }
 
   render() {
     if (!this.props.currentUser) {
@@ -25,10 +37,13 @@ class Greeting extends React.Component {
       );
     } else {
       return (
-        <hgroup className="header-group">
-          <h2 className="header-name">Hi, {this.props.currentUser.username}!</h2>
-          <button className="header-button" onClick={this.props.logout}>Log Out</button>
-        </hgroup>
+        <div className="dropdown">
+          <button className="dropbtn" />
+          <div className="dropcontent">
+            <div className="header-name">Hi, {this.props.currentUser.username}!</div>
+            <button className="header-button" onClick={this.props.logout}>Log Out</button>
+          </div>
+        </div>
       )
     }
   }

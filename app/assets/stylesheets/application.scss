@@ -27,10 +27,40 @@ header {
   align-items: center;
   justify-content: space-between;
   color: white;
-  height: 50px;
+  height: 70px;
   font-size: 16px;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
+}
+
+.dropdown {
+  position: relative;
+  right: 180px;
+  float: left;
+}
+
+.dropdown .dropbtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 15px;
+  background-image: image-url('user_headphones.png');
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+
+.dropcontent {
+  font-size: 14px;
+  font-weight: 300px;
+  display: none;
+  position: absolute;
+  background-color: rgb(35, 40, 55);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropcontent {
+  display: block;
 }
 
 header nav {

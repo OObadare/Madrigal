@@ -5,16 +5,6 @@ class Modal extends React.Component {
     super(props)
   }
 
-  componentChecker() {
-    if (this.props.errors){
-      //then this.props.component is the previous component
-    } else if (!this.props.component) {
-      //render null
-    } else {
-      //render the login and signup buttons
-    }
-  }
-
   render() {
     if(!this.props.component) {
       return null;

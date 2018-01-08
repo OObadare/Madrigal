@@ -69,8 +69,6 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    if (this.props.errors) {
-      this.props.show(<SessionFormContainer formType={this.props.formType}/>)
       return(
         <ul>
           {this.props.errors.map((error, i) => (
@@ -80,7 +78,6 @@ class SessionForm extends React.Component {
           ))}
         </ul>
       );
-    }
   }
 
   emailInput () {
