@@ -22,7 +22,7 @@ const App = () => (
     <Switch>
       <Route path="/login" component={SessionFormContainer} />
       <Route path="/signup" component={SessionFormContainer} />
-      <Route path="/user/:id" component={UserContainer} />
+      <Route path="/users/:id" component={UserContainer} />
     </Switch>
   </div>
 );

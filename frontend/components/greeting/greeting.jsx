@@ -19,6 +19,10 @@ class Greeting extends React.Component {
     });
   }
 
+  userLink() {
+    this.props.getUser(this.props.currentUser);
+  }
+
   // //componentDidUpdate isn't working, work on this later
   // componentWillUpdate() {
   //   if ((this.state.errors !== null) && (!this.props.currentUser)) {
@@ -40,8 +44,7 @@ class Greeting extends React.Component {
         <div className="dropdown">
           <button className="dropbtn" />
           <div className="dropcontent">
-            <div className="header-name">{this.props.currentUser.username}</div>
-            <Link to={{pathname: `/users/${this.props.currentUser.id}`}} >TestLink</Link>
+            <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
             <div className="header-button" onClick={this.props.logout}>Log Out</div>
           </div>
         </div>

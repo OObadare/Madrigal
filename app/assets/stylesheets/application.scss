@@ -60,8 +60,14 @@ header {
 }
 
 .dropdown:hover .dropcontent {
+  height: 52px;
+  width: 47px;
+  padding: 7px;
+  background-color: rgb(35, 40, 55);
   display: block;
+  text-decoration: none;
 }
+
 
 header nav {
   width: 150px;
@@ -198,4 +204,10 @@ header nav a{
   border: 1px solid lightgrey;
   border-radius: 30px;
   line-height: 0;
+}
+//User show page
+
+.userInfo {
+  height: 350px;
+  background-color: rgb(76, 76, 76);
 }

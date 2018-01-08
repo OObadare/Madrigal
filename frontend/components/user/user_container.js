@@ -11,8 +11,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getUser: (user) => dispatch(getUser(user))
+    getUser: (userId) => dispatch(getUser(userId))
   };
 };
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(User));
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps)(User));
