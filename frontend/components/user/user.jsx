@@ -9,7 +9,6 @@ class User extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     return this.setState({
       user: this.props.getUser(this.props.match.params.id)
     });

@@ -33,6 +33,10 @@ header {
   font-family: 'Montserrat', sans-serif;
 }
 
+h1 {
+  margin-left: 70px;
+}
+
 .dropdown {
   position: relative;
   right: 180px;
@@ -42,8 +46,8 @@ header {
 .dropdown .dropbtn {
   width: 40px;
   height: 40px;
-  border-radius: 15px;
-  background-image: image-url('user_headphones.png');
+  border-radius: 30px;
+  background-image: image-url('8tracks-avatar.jpeg');
   background-repeat: no-repeat;
   background-size: 100%
 }
@@ -210,4 +214,14 @@ header nav a{
 .userInfo {
   height: 350px;
   background-color: rgb(76, 76, 76);
+}
+
+#userAvatar {
+  height: 305px;
+  width: 305px;
+  background-image: image-url('8tracks-avatar.jpeg');
+  background-size: 100%;
+  border-radius: 155px;
+  margin-left: 150px;
+  float: left;
 }
