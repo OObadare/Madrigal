@@ -41,7 +41,7 @@ class Greeting extends React.Component {
           <button className="dropbtn" />
           <div className="dropcontent">
             <div className="header-name">{this.props.currentUser.username}</div>
-            <Link to={{pathname: `api/users/${this.props.currentUser.id}`}} >TestLink</Link>
+            <Link to={{pathname: `/users/${this.props.currentUser.id}`}} >TestLink</Link>
             <div className="header-button" onClick={this.props.logout}>Log Out</div>
           </div>
         </div>
