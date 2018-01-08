@@ -30,8 +30,7 @@ export const login = (user, component = "loginpath") => dispatch => (
   APIUtil.login(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ), err => (
-    dispatch(receiveErrors(err.responseJSON)),
-    dispatch(showModal(component))
+    dispatch(receiveErrors(err.responseJSON))
   ))
 );
 
