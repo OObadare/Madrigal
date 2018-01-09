@@ -35,11 +35,10 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.props.formType === "signuppath") {
-      this.props.signup(user);
+      this.props.signup(user).then(this.props.hideModal);
     } else {
-      this.props.login(user);
+      this.props.login(user).then(this.props.hideModal);
     }
-    this.props.hideModal();
   }
 
   swapLogSign() {

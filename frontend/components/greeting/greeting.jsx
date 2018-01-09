@@ -19,6 +19,10 @@ class Greeting extends React.Component {
     });
   }
 
+  userLink() {
+    this.props.getUser(this.props.currentUser);
+  }
+
   // //componentDidUpdate isn't working, work on this later
   // componentWillUpdate() {
   //   if ((this.state.errors !== null) && (!this.props.currentUser)) {
@@ -40,35 +44,13 @@ class Greeting extends React.Component {
         <div className="dropdown">
           <button className="dropbtn" />
           <div className="dropcontent">
-            <div className="header-name">Hi, {this.props.currentUser.username}!</div>
-            <button className="header-button" onClick={this.props.logout}>Log Out</button>
+            <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
+            <div className="header-button" onClick={this.props.logout}>Log Out</div>
           </div>
         </div>
       )
     }
   }
 }
-//
-//
-//
-// const sessionLinks = (show) => (
-//   <nav className="login-signup">
-//     <button onClick={show} id="loginpath"> Log in</button>
-//     &nbsp;
-//     <button onClick={show} id="signuppath"> Sign Up</button>
-//   </nav>
-// );
-//
-// const personalGreeting = (currentUser, logout) => (
-// 	<hgroup className="header-group">
-//     <h2 className="header-name">Hi, {currentUser.username}!</h2>
-//     <button className="header-button" onClick={logout}>Log Out</button>
-// 	</hgroup>
-// );
-//
-// const Greeting = ({ currentUser, logout, show }) => (
-//   currentUser ? personalGreeting(currentUser, logout) : sessionLinks(show)
-// );
-
 
 export default Greeting;

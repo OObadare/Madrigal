@@ -33,6 +33,10 @@ header {
   font-family: 'Montserrat', sans-serif;
 }
 
+h1 {
+  margin-left: 70px;
+}
+
 .dropdown {
   position: relative;
   right: 180px;
@@ -42,10 +46,11 @@ header {
 .dropdown .dropbtn {
   width: 40px;
   height: 40px;
-  border-radius: 15px;
-  background-image: image-url('user_headphones.png');
+  border-radius: 30px;
+  background-image: image-url('8tracks-avatar.jpeg');
   background-repeat: no-repeat;
-  background-size: 100%
+  background-size: 100%;
+  cursor: pointer;
 }
 
 .dropcontent {
@@ -60,8 +65,18 @@ header {
 }
 
 .dropdown:hover .dropcontent {
+  height: 52px;
+  width: 47px;
+  padding: 7px;
+  background-color: rgb(35, 40, 55);
   display: block;
+  text-decoration: none;
 }
+
+.dropcontent .header-button {
+  cursor: pointer;
+}
+
 
 header nav {
   width: 150px;
@@ -75,8 +90,6 @@ header nav a{
   font-weight: 500;
   text-decoration: none;
 }
-.loginimage {
-}
 
 #loginpath{
   padding: 5px 10px;
@@ -85,6 +98,7 @@ header nav a{
   color: white;
   font-size: 16px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 #signuppath {
@@ -95,6 +109,7 @@ header nav a{
   color: white;
   font-size: 16px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 #backdrop {
@@ -144,6 +159,7 @@ header nav a{
   background-size: 50% 50%;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 
 #modal input{
@@ -198,4 +214,48 @@ header nav a{
   border: 1px solid lightgrey;
   border-radius: 30px;
   line-height: 0;
+}
+//User show page
+
+.userInfo {
+  display: flex;
+  padding-top: 20px;
+  height: 350px;
+  background-color: rgb(76, 76, 76);
+}
+
+#username {
+  padding-left: 30px;
+  margin-top: 400px;
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+}
+
+#userAvatar {
+  height: 305px;
+  width: 305px;
+  background-image: image-url('8tracks-avatar.jpeg');
+  background-size: 100%;
+  border-radius: 155px;
+  margin-left: 150px;
+  float: left;
+}
+
+.userTabs {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  text-align: center;
+
+}
+
+.tabtoggle {
+  cursor: pointer;
+  height: 40px;
+  flex-grow: 1;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom: none;
+  color: inherit;
 }

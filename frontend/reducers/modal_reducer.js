@@ -9,7 +9,10 @@ const modalReducer = (state = {}, action) => {
       return {component: action.component};
     }
     case HIDE_MODAL: {
-      return {component: ""};
+      return {
+        component: "",
+        errors: {session: []}
+      };
     }
     default: {
       return state;
