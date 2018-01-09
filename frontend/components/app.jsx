@@ -3,6 +3,7 @@ import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import ModalContainer from './modal/modal_container.js';
 import UserContainer from './user/user_container.js';
+import PlaylistFormContainer from './playlist_form/playlist_form_container';
 import {
   Route,
   Redirect,
@@ -20,9 +21,8 @@ const App = () => (
       <GreetingContainer />
     </header>
     <Switch>
-      <Route path="/login" component={SessionFormContainer} />
-      <Route path="/signup" component={SessionFormContainer} />
       <Route path="/users/:id" component={UserContainer} />
+      <Route path="/playlists/new" component={PlaylistFormContainer} />
     </Switch>
   </div>
 );
