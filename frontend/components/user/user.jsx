@@ -4,15 +4,18 @@ class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: this.props.user
     };
+    this.getUser = this.props.getUser.bind(this);
   }
 
   componentDidMount() {
-    return this.setState({
-      user: this.props.getUser(this.props.match.params.id)
+    this.props.getUser(parseInt(this.props.match.params.id));
+    this.setState({
+      user: this.props.users.user
     });
   }
+
 
   render() {
     return (
@@ -20,7 +23,7 @@ class User extends React.Component {
         <img id="userAvatar" />
         <div>
           <div id="userDetails">
-            Details here
+            {this.props.users.user.username}
             <span id="username"> </span>
             <span id="followercount"></span>
           </div>
