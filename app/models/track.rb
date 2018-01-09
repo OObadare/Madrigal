@@ -4,6 +4,6 @@ class Track < ApplicationRecord
 
   has_many :playlists, through: :tracklists
   has_attached_file :song
-  validates_content_attachment_type :song, content_type: /\Aaudio\/.*\z/
+  validates_attachment_content_type :song, content_type: /\Aaudio\/.*\z/
 
 end
