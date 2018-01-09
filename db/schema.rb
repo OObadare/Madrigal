@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109011035) do
+ActiveRecord::Schema.define(version: 20180109143757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180109011035) do
   create_table "tracklists", force: :cascade do |t|
     t.integer "playlist_id"
     t.integer "track_id"
+    t.string "annotation"
   end
 
   create_table "tracks", force: :cascade do |t|
