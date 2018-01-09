@@ -19,17 +19,23 @@ class User extends React.Component {
 
   render() {
     return (
-      <section className="userInfo">
-        <img id="userAvatar" />
-        <div>
-          <div id="userDetails">
-            {this.props.users.user.username}
-            <span id="username"> </span>
-            <span id="followercount"></span>
+      <div>
+        <section className="userInfo">
+          <img id="userAvatar" />
+          <div>
+            <div id="userDetails">
+              <span id="username">
+                {this.props.users.user.username}
+              </span>
+              <span id="followercount"></span>
+            </div>
           </div>
-        </div>
-
-      </section>
+        </section>
+        <section className="userTabs">
+          <button id="playlistcontent" className="tabtoggle">Playlists</button>
+          <button id="likecontent" className="tabtoggle">Likes</button>
+        </section>
+      </div>
     );
   }
 
