@@ -46,35 +46,36 @@ class PlaylistForm extends React.Component {
   render() {
     return (
       <div className="playlist-form-container">
+        <h1>Upload your tracks and cover art! Then enter a title and description.</h1>
         <form className="playlist-form-box">
-          Upload your tracks and cover art!
-          <br/>
-          Then enter a title and description.
-          <br/>
+          <div className="artcontainer">
+            <object type="image/jpg" data={this.state.artUrl}/>
+          </div>
           <div className="playlist-info-form">
             <br/>
               <input id = "title-input" type="text"
                 value={this.state.title}
                 onChange={this.update('title')}
                 className="playlist-input"
-                placeholder="Title"
+                placeholder="Untitled Mix"
               />
             <br/>
-              <input id="description" type="text"
+              <input id="description" type="textarea"
+                wrap="soft"
+                rows="20"
+                cols="70"
                 value={this.state.description}
                 onChange={this.update('description')}
                 className="playlist-input"
-                placeholder="Description"
+                placeholder="Enter your description here!"
               />
             <br/>
             <input id="art" type="file" onChange={this.updateFile} className="playlist-input" />
+            <label htmlFor="art">Choose a file</label>
             <br/>
-            <input type="submit" value="Submit" onClick={this.handleSubmit}/>
+            <input id="submit" type="submit" value="Publish" onClick={this.handleSubmit}/>
           </div>
         </form>
-        <div id="swapcontainer">
-          <img src={this.state.artUrl}></img>
-        </div>
       </div>
     );
   }
