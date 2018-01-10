@@ -1,21 +1,23 @@
 import { connect } from 'react-redux';
-import { createPlaylist, getPlaylist } from '../../actions/modal_actions';
+import { withRouter } from 'react-router';
+import { createPlaylist, getPlaylist } from '../../actions/playlist_actions';
 import PlaylistForm from './playlist_form';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    playlist: state.playlist
+    playlist: state.playlist,
+    currentUser: state.session.currentUser
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createPlaylist: playlist => dispatch(createPlaylist(playlist)),
-    getPlaylist: id => dispatch(getPlaylist(id))
+    createPlaylist: (playlist) => dispatch(createPlaylist(playlist)),
+    getPlaylist: (id) => dispatch(getPlaylist(id))
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(PlaylistForm);
+)(PlaylistForm));

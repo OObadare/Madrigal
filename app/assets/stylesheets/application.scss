@@ -37,6 +37,12 @@ h1 {
   margin-left: 70px;
 }
 
+#newmixbtn {
+  position: relative;
+  right: 250px;
+  float:left;
+}
+
 .dropdown {
   position: relative;
   right: 180px;
@@ -91,6 +97,8 @@ header nav a{
   text-decoration: none;
 }
 
+
+//for the login and sign up modal
 #loginpath{
   padding: 5px 10px;
   background-color: rgb(47, 54, 74);
@@ -215,6 +223,7 @@ header nav a{
   border-radius: 30px;
   line-height: 0;
 }
+
 //User show page
 
 .userInfo {

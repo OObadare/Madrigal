@@ -7,19 +7,27 @@ class PlaylistForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "",
-      user_id: "",
-      description: "",
-      artFile: "",
-      artUrl: ""
-    }
+      user_id: ``,
+      description: ``,
+      artFile: ``,
+      artUrl: ``
+    };
     this.updateFile = this.updateFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    var formData = new FormData();
+    formData.append("playlist[art_file_name]", this.state.artFile);
+    formData.append("playlist[title]", this.state.title);
+    formData.append("playlist[description]", this.state.description);
+    formData.append("playlist[user_id]", this.props.currentUser.id);
+    this.props.createPlaylist(formData);
   }
 
   updateFile(e) {
     var file = e.currentTarget.files[0];
     var fileReader = new FileReader();
-    debugger
     fileReader.onloadend = function() {
       this.setState({artFile: file, artUrl: fileReader.result});
     }.bind(this);

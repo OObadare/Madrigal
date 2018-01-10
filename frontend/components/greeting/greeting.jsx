@@ -41,14 +41,21 @@ class Greeting extends React.Component {
       );
     } else {
       return (
-        <div className="dropdown">
-          <button className="dropbtn" />
-          <div className="dropcontent">
-            <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
-            <div className="header-button" onClick={this.props.logout}>Log Out</div>
+        <div>
+          <Link to={`/playlists/new`}>
+            <button type="button" id="newmixbtn"> New Mix </button>
+          </Link>
+          <div className="dropdown">
+            <button className="dropbtn" />
+            <div className="dropcontent">
+              <Link to={`/playlists/new`}>New Mix</Link>
+              <br></br>
+              <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
+              <div className="header-button" onClick={this.props.logout}>Log Out</div>
+            </div>
           </div>
         </div>
-      )
+      );
     }
   }
 }

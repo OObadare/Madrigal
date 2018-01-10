@@ -1,9 +1,11 @@
-export const submitPlaylist = playlist => {
+export const submitPlaylist = formData => {
   return (
     $.ajax({
     method: 'POST',
     url: '/api/playlists',
-    data: {playlist}
+    contentType: false,
+    processData: false,
+    data: formData
     })
   );
 };
