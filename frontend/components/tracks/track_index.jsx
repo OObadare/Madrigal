@@ -8,17 +8,30 @@ class TrackIndex extends React.Component {
       trackUrl: '',
       title: '',
       artist: '',
-      album: ''
+      album: '',
+      tracks: ''
     };
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  showAllTracks() {
-    return (
-      tracks = this.props.getTracks()
-    );
+  componentDidMount() {
+    this.setState({
+      tracks: this.props.getTracks()
+    });
   }
+
+  // componentDidUpdate() {
+  //   this.setState({
+  //     tracks: this.props.getTracks
+  //   });
+  // }
+
+  // showAllTracks() {
+  //   tracks.forEach
+  //
+  //   );
+  // }
 
   handleSubmit(e) {
     var formData = new FormData();

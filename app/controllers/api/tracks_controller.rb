@@ -7,7 +7,7 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    @tracks = Tracks.all
+    @tracks = Track.all
   end
 
   def track_params

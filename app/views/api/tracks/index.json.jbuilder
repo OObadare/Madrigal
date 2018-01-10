@@ -1,2 +1,4 @@
 # render the show partial
-json.partial! "api/tracks" json.array! tracks: @tracks 
+json.array! @tracks do |track|
+  json.partial! "api/track", track: track
+end

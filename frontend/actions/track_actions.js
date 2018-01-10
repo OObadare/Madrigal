@@ -13,14 +13,14 @@ export const receiveTrack = (track) => {
 };
 
 export const receiveTracks = (tracks) => {
+  debugger
   return ({
     type: RECEIVE_TRACKS,
     tracks: tracks
   });
-}
+};
 
 export const createTrack = (formData) => (dispatch) => {
-  debugger
   return (
     TrackUtil.submitTrack(formData).then((track)=> (
       dispatch(receiveTrack(track))
@@ -30,8 +30,8 @@ export const createTrack = (formData) => (dispatch) => {
 
 export const getTrack = (id) => (dispatch) => {
   return (
-    TrackUtil.fetchTrack(id).then((track) => (
-      dispatch(receiveTrack(track))
+    TrackUtil.fetchTrack(id).then((tracks) => (
+      dispatch(receiveTracks(tracks))
     ))
   );
 };
