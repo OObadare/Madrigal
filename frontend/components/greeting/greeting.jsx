@@ -50,7 +50,9 @@ class Greeting extends React.Component {
             <div className="dropcontent">
               <Link to={`/playlists/new`}>New Mix</Link>
               <br></br>
+              <span></span>
               <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
+              <br></br>
               <div className="header-button" onClick={this.props.logout}>Log Out</div>
             </div>
           </div>

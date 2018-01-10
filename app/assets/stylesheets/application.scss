@@ -33,6 +33,11 @@ header {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 h1 {
   margin-left: 70px;
 }
@@ -68,6 +73,10 @@ h1 {
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
+}
+
+.dropcontent br {
+  padding-top: 10px;
 }
 
 .dropcontent {
@@ -317,15 +326,6 @@ header nav a{
   font-size: 15px;
 }
 
-label {
-  margin-top: 20px;
-  background-color: lightgrey;
-  border: 1px solid grey;
-  cursor: pointer;
-  color: black;
-  font-weight: 700px;
-}
-
 #art {
   width: 0.1px;
   height: 0.1px;
@@ -333,6 +333,27 @@ label {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+}
+
+.artcontainer {
+  height: 400px;
+  width: 396px;
+  background-size: 100%;
+  background-image: image-url('cover.1024.jpeg');
+}
+
+.artcontainer object {
+  width: 100%;
+  height: 100%
+}
+
+label {
+  margin-top: 20px;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  cursor: pointer;
+  color: black;
+  font-weight: 700px;
 }
 
 #submit {
@@ -347,14 +368,16 @@ label {
   cursor: pointer;
 }
 
-.artcontainer {
-  height: 400px;
-  width: 396px;
-  background-size: 100%;
-  background-image: image-url('cover.1024.jpeg');
+#track-index-holder {
+  display:flex;
+  justify-content: space-around;
 }
 
-.artcontainer object {
-  width: 100%;
-  height: 100%
+#song {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }

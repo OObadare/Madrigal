@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import TrackIndexContainer from "../tracks/track_index_container";
 
 class PlaylistForm extends React.Component {
 
@@ -76,6 +77,7 @@ class PlaylistForm extends React.Component {
             <input id="submit" type="submit" value="Publish" onClick={this.handleSubmit}/>
           </div>
         </form>
+        <TrackIndexContainer />
       </div>
     );
   }
