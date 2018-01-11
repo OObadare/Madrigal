@@ -13,7 +13,6 @@ export const receiveTrack = (track) => {
 };
 
 export const receiveTracks = (tracks) => {
-  debugger
   return ({
     type: RECEIVE_TRACKS,
     tracks: tracks

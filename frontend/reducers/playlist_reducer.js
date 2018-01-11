@@ -1,4 +1,4 @@
-import { merge } from "lodash/merge";
+import merge from "lodash/merge";
 
 import {RECEIVE_PLAYLIST} from "../actions/playlist_actions";
 
@@ -13,3 +13,5 @@ const playlistReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export default playlistReducer;

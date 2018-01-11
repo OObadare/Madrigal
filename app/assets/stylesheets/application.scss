@@ -299,7 +299,7 @@ header nav a{
 }
 
 .playlist-form-box {
-  background-color: #eee;
+  background-color: white;
   display: flex;
   justify-content: space-around;
 
@@ -368,9 +368,41 @@ label {
   cursor: pointer;
 }
 
+
+
+
+//Track-Index
 #track-index-holder {
   display:flex;
+  background-color: rgb(238, 238, 238);
   justify-content: space-around;
+}
+
+#track-index {
+  height: 500px;
+  width: 35%;
+  overflow: scroll;
+}
+
+#upload-tracks {
+  width: 20%;
+  text-align: center;
+}
+
+#upload-tracks input {
+  height: 20px;
+  width: 60%;
+  margin-bottom: 5px;
+}
+
+#upload-tracks #submit {
+  margin-top: 20px;
+  height: 30px;
+}
+
+
+#tracklists {
+  width: 30%
 }
 
 #song {
@@ -380,4 +412,30 @@ label {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+}
+//Track-Index - track-div
+
+#track-div {
+  background-color: white;
+  border-top: 1px solid gray;
+  margin: 3px;
+}
+
+#title-div{
+  color: black;
+  font-size: 16px;
+}
+
+#album-div{
+  color: black;
+
+}
+
+#album-span {
+  color: gray;
+}
+
+#artist-span {
+color: gray;
+font-size: 14px;
 }

@@ -13,28 +13,55 @@ class TrackIndex extends React.Component {
     };
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showAllTracks = this.showAllTracks.bind(this);
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(newProps) {
+    if (JSON.stringify(newProps.tracks) !== JSON.stringify(this.props.tracks)){
+      this.setState({
+        tracks: this.props.getTracks()
+      });
+    }
+  }
+
+  componentWillMount() {
     this.setState({
       tracks: this.props.getTracks()
     });
   }
 
-  // componentDidUpdate() {
-  //   this.setState({
-  //     tracks: this.props.getTracks
-  //   });
-  // }
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key)){
+          return false;
+        }
+    }
+    return true;
+  }
 
-  // showAllTracks() {
-  //   tracks.forEach
-  //
-  //   );
-  // }
+
+  showAllTracks() {
+    const tracks = this.props.tracks.tracks;
+    if (Object.keys(this.props.tracks)[0]) {
+      return Object.keys(tracks).map((key) =>{
+        return (
+          <div id="track-div">
+            <div id="title-div">
+              {tracks[key].title} <span id="artist-span">{tracks[key].artist}</span>
+            </div>
+            <div id="album-div">
+              Album: <span id="album-span"> {tracks[key].album} </span>
+            </div>
+          </div>
+        );
+      });
+    } else {
+      return null;
+    }
+  }
 
   handleSubmit(e) {
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("track[song_file_name]", this.state.trackFile);
     formData.append("track[title]", this.state.title);
     formData.append("track[artist]", this.state.artist);
@@ -61,15 +88,16 @@ class TrackIndex extends React.Component {
   }
 
   render() {
+    const tracks =this.showAllTracks();
     return (
       <span>
-        <h2>upload and select your tracks here!</h2>
+        <h2 id="crate-head">My Crate</h2>
         <div id="track-index-holder">
-          <div>
+          <div id="tracklists">
             Tracklists will go here!
           </div>
           <div id="upload-tracks">
-            <input id = "title-input" type="text"
+            <input id = "song-title-input" type="text"
               value={this.state.title}
               onChange={this.update('title')}
               className="song-input"
@@ -96,11 +124,12 @@ class TrackIndex extends React.Component {
             <input id="submit" type="submit" value="Add Track to library!" onClick={this.handleSubmit}/>
           </div>
           <div id="track-index">
+            {tracks}
           </div>
         </div>
       </span>
     );
   }
-};
+}
 
 export default TrackIndex;

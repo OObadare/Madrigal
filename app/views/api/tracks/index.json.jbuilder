@@ -1,4 +1,6 @@
 # render the show partial
-json.array! @tracks do |track|
-  json.partial! "api/track", track: track
+@tracks.each do |track|
+  json.set! track.id do
+    json.partial! "api/tracks/track", track: track
+  end
 end

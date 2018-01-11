@@ -10,7 +10,7 @@ class Playlist < ApplicationRecord
   foreign_key: :user_id,
   primary_key: :id
 
-
+  has_many :tracklists
   has_many :tracks, through: :tracklists
   has_many :users, through: :likes
 
