@@ -15,6 +15,8 @@ class TrackIndex extends React.Component {
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showAllTracks = this.showAllTracks.bind(this);
+    this.parentTracklists = this.parentTracklists.bind(this);
+    this.handleId = this.handleId.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -31,15 +33,14 @@ class TrackIndex extends React.Component {
     });
   }
 
-  isEmpty(obj) {
-    for(var key in obj) {
-        if(obj.hasOwnProperty(key)){
-          return false;
-        }
-    }
-    return true;
+
+  parentTracklists(tracklists) {
+    //stuff
   }
 
+  handleId(trackID, e){
+    this.props.receiveId(trackID);
+  }
 
   showAllTracks() {
     const tracks = this.props.tracks.tracks;
@@ -53,6 +54,7 @@ class TrackIndex extends React.Component {
             <div id="album-div">
               Album: <span id="album-span"> {tracks[key].album} </span>
             </div>
+            <button onClick={(e) => this.handleId(tracks[key].id, e)} />
           </div>
         );
       });
@@ -94,7 +96,7 @@ class TrackIndex extends React.Component {
       <span>
         <h2 id="crate-head">My Crate</h2>
         <div id="track-index-holder">
-          <TracklistCreationContainer />
+          <TracklistCreationContainer parentTracklists="{this.parentTracklists}"/>
           <div id="upload-tracks">
             <input id = "song-title-input" type="text"
               value={this.state.title}

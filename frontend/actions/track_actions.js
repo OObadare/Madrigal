@@ -5,6 +5,7 @@ export const FETCH_TRACK = "FETCH_TRACK";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 
+
 export const receiveTrack = (track) => {
   return ({
     type: RECEIVE_TRACK,
@@ -18,6 +19,7 @@ export const receiveTracks = (tracks) => {
     tracks: tracks
   });
 };
+
 
 export const createTrack = (formData) => (dispatch) => {
   return (
