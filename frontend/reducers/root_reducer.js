@@ -6,6 +6,7 @@ import modals from './modal_reducer';
 import users from "./user_reducer";
 import playlists from "./playlist_reducer";
 import tracks from "./track_reducer";
+import tracklists from "./tracklist_reducer";
 
 const rootReducer = combineReducers({
   session,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   users,
   playlists,
   tracks,
+  tracklists
 });
 
 export default rootReducer;
