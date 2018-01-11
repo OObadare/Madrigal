@@ -6,8 +6,6 @@ import { getTracklist, getTracklists, createTracklist } from '../../actions/trac
 const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser,
-    track: state.track,
-    tracks: state.tracks
   };
 };
 

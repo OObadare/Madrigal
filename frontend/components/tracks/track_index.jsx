@@ -1,4 +1,5 @@
 import React from 'react';
+import TracklistCreationContainer from "../tracklist/tracklist_creation_container";
 
 class TrackIndex extends React.Component {
   constructor(props){
@@ -93,9 +94,7 @@ class TrackIndex extends React.Component {
       <span>
         <h2 id="crate-head">My Crate</h2>
         <div id="track-index-holder">
-          <div id="tracklists">
-            Tracklists will go here!
-          </div>
+          <TracklistCreationContainer />
           <div id="upload-tracks">
             <input id = "song-title-input" type="text"
               value={this.state.title}
