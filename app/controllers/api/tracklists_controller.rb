@@ -1,7 +1,6 @@
 class Api::TracklistsController < ApplicationController
 
   def create
-    debugger
     @tracklist = Tracklist.new(tracklist_params)
     @tracklist.save!
 
