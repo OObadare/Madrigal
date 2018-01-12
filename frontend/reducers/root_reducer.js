@@ -8,6 +8,7 @@ import playlists from "./playlist_reducer";
 import tracks from "./track_reducer";
 import tracklists from "./tracklist_reducer";
 import ids from "./id_reducer";
+import audio from "./audio_reducer";
 
 const rootReducer = combineReducers({
   session,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   playlists,
   tracks,
   tracklists,
-  ids
+  ids,
+  audio
 });
 
 export default rootReducer;

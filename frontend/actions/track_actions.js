@@ -4,6 +4,7 @@ export const SUBMIT_TRACK = "SUBMIT_TRACK";
 export const FETCH_TRACK = "FETCH_TRACK";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
+export const RECEIVE_AUDIO = "RECEIVE_AUDIO";
 
 
 export const receiveTrack = (track) => {
@@ -17,6 +18,13 @@ export const receiveTracks = (tracks) => {
   return ({
     type: RECEIVE_TRACKS,
     tracks: tracks
+  });
+};
+
+export const receiveAudio = (track) => {
+  return ({
+    type: RECEIVE_AUDIO,
+    track: track
   });
 };
 
@@ -44,3 +52,11 @@ export const getTracks = () => (dispatch) => {
     ))
   );
 };
+
+// export const getAudio = (id) => (dispatch) => {
+//   return (
+//     TrackUtil.fetchTrack(id).then((track) => (
+//       dispatch(receiveAudio(track))
+//     ))
+//   );
+// };

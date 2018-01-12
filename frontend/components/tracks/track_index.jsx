@@ -10,13 +10,16 @@ class TrackIndex extends React.Component {
       title: '',
       artist: '',
       album: '',
-      tracks: ''
+      tracks: '',
+      audio: '',
+      audioUrl: ''
     };
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showAllTracks = this.showAllTracks.bind(this);
     this.parentTracklists = this.parentTracklists.bind(this);
     this.handleId = this.handleId.bind(this);
+    this.playAudio = this.playAudio.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -25,7 +28,6 @@ class TrackIndex extends React.Component {
         tracks: this.props.getTracks()
       });
     }
-
   }
 
   componentWillMount() {
@@ -44,15 +46,35 @@ class TrackIndex extends React.Component {
   }
 
   setAudio(track, e){
-    this.props.receiveTrack(track);
+    this.props.receiveAudio(track);
   }
+
+
+
 
   playAudio() {
-    <audio controls="controls">
-      <source src={tracks[key].song_file_name} type="audio/mpeg" />
-    </audio>
+    if (Object.keys(this.props.audio).length > 0){
+      var audiofile = this.props.audio;
+      debugger
+      return (
+        <audio controls="controls">
+          <source src={audiofile.song} type="audio/mpeg" />
+        </audio>
+      );
+    }
   }
 
+  updateFile(e) {
+    var file = e.currentTarget.files[0];
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      this.setState({trackFile: file, trackUrl: fileReader.result});
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
 
   showAllTracks() {
     const tracks = this.props.tracks.tracks;
@@ -78,7 +100,7 @@ class TrackIndex extends React.Component {
 
   handleSubmit(e) {
     const formData = new FormData();
-    formData.append("track[song_file_name]", this.state.trackFile);
+    formData.append("track[song]", this.state.trackFile);
     formData.append("track[title]", this.state.title);
     formData.append("track[artist]", this.state.artist);
     formData.append("track[album]", this.state.album);
@@ -91,20 +113,11 @@ class TrackIndex extends React.Component {
     });
   }
 
-  updateFile(e) {
-    var file = e.currentTarget.files[0];
-    var fileReader = new FileReader();
-    fileReader.onloadend = function() {
-      this.setState({trackFile: file, trackUrl: fileReader.result});
-    }.bind(this);
 
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
 
   render() {
     const tracks =this.showAllTracks();
+    const audio = this.playAudio();
     return (
       <span>
         <h2 id="crate-head">My Crate</h2>
@@ -139,6 +152,9 @@ class TrackIndex extends React.Component {
           </div>
           <div id="track-index">
             {tracks}
+          </div>
+          <div>
+            {audio}
           </div>
         </div>
       </span>
