@@ -1,7 +1,7 @@
 import TrackIndex from './track_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getTrack, getTracks, createTrack } from '../../actions/track_actions';
+import { getTrack, getTracks, createTrack, receiveTrack } from '../../actions/track_actions';
 import { receiveId } from "../../actions/tracklist_actions";
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     receiveIds: () => dispatch(receiveId()),
     getTrack: (trackId) => dispatch(getTrack(trackId)),
     getTracks: () => dispatch(getTracks()),
-    createTrack: (track) => dispatch(createTrack(track))
+    createTrack: (track) => dispatch(createTrack(track)),
+    receiveTrack: (track) => dispatch(receiveTrack(track))
   };
 };
 

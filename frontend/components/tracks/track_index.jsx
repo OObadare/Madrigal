@@ -43,6 +43,17 @@ class TrackIndex extends React.Component {
     this.props.receiveId(trackID);
   }
 
+  setAudio(track, e){
+    this.props.receiveTrack(track);
+  }
+
+  playAudio() {
+    <audio controls="controls">
+      <source src={tracks[key].song_file_name} type="audio/mpeg" />
+    </audio>
+  }
+
+
   showAllTracks() {
     const tracks = this.props.tracks.tracks;
     if (Object.keys(this.props.tracks)[0]) {
@@ -55,7 +66,8 @@ class TrackIndex extends React.Component {
             <div id="album-div">
               Album: <span id="album-span"> {tracks[key].album} </span>
             </div>
-            <button onClick={(e) => this.handleId(tracks[key].id, e)} />
+            <button id="add-track-to-tracklist" onClick={(e) => this.handleId(tracks[key].id, e)} />
+            <button id="play-track" onClick={(e) => this.setAudio(tracks[key], e)} />
           </div>
         );
       });

@@ -8,7 +8,7 @@ const tracklistReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_TRACKLIST:
       const tracklist = action.tracklist;
-      return merge({}, state, { [tracklist.id]: tracklist });
+      return merge({}, state, { tracklist });
     case RECEIVE_TRACKLISTS:
       const tracklists = action.tracklists;
       return merge({}, { tracklists });
