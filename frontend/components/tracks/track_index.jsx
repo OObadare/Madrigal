@@ -156,7 +156,7 @@ class TrackIndex extends React.Component {
             <input id="song" type="file" onChange={this.updateFile} className="new-song" />
             <label htmlFor="song">Choose a music file!</label>
             <br></br>
-            <input id="submit" type="submit" value="Add Track to library!" onClick={this.handleSubmit}/>
+            <input id="submit-track" type="submit" value="Add Track to library!" onClick={this.handleSubmit}/>
           </div>
           <div id="track-index">
             {tracks}

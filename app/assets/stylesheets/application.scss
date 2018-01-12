@@ -265,13 +265,15 @@ header nav a{
 }
 
 #count {
+  margin-left: 30px;
   margin-top:50px;
   margin-bottom: 10px;
 }
 
 #follow-text {
+  margin-left: 30px;
   width: 300px;
-  text-align: right;
+  text-align: center;
 }
 
 #followedcount {
@@ -488,6 +490,8 @@ audio {
 }
 //Track-Index - track-div
 
+
+
 #track-div {
   background-color: white;
   border-top: 1px solid gray;
@@ -537,4 +541,17 @@ font-size: 14px;
   background-size: 100%;
   outline: none;
   cursor: pointer;
+}
+
+#submit-track {
+  margin-top: 80px;
+  padding: 5px 10px;
+  background-color: rgb(150, 150, 150);
+  border: 1px solid rgb(47, 54, 74);
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 10px;
 }
