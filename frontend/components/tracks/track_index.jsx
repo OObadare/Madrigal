@@ -55,9 +55,8 @@ class TrackIndex extends React.Component {
   playAudio() {
     if (Object.keys(this.props.audio).length > 0){
       var audiofile = this.props.audio;
-      debugger
       return (
-        <audio controls="controls">
+        <audio autoPlay>
           <source src={audiofile.song} type="audio/mpeg" />
         </audio>
       );
@@ -82,14 +81,18 @@ class TrackIndex extends React.Component {
       return Object.keys(tracks).map((key) =>{
         return (
           <div id="track-div" key={key}>
-            <div id="title-div">
-              {tracks[key].title} <span id="artist-span">{tracks[key].artist}</span>
+            <div id="track-info-holder">
+              <div id="title-div">
+                {tracks[key].title} <span id="artist-span">{tracks[key].artist}</span>
+              </div>
+              <div id="album-div">
+                Album: <span id="album-span"> {tracks[key].album} </span>
+              </div>
             </div>
-            <div id="album-div">
-              Album: <span id="album-span"> {tracks[key].album} </span>
+            <div id="button-div">
+              <button id="add-track-to-tracklist" onClick={(e) => this.handleId(tracks[key].id, e)} />
+              <button id="play-track" onClick={(e) => this.setAudio(tracks[key], e)} />
             </div>
-            <button id="add-track-to-tracklist" onClick={(e) => this.handleId(tracks[key].id, e)} />
-            <button id="play-track" onClick={(e) => this.setAudio(tracks[key], e)} />
           </div>
         );
       });
@@ -121,8 +124,13 @@ class TrackIndex extends React.Component {
     return (
       <span>
         <h2 id="crate-head">My Crate</h2>
+        <h3>
+          {audio}
+        </h3>
         <div id="track-index-holder">
-          <TracklistCreationContainer parentTracklists="{this.parentTracklists}"/>
+          <div id="tracklist-holder">
+            <TracklistCreationContainer parentTracklists="{this.parentTracklists}"/>
+          </div>
           <div id="upload-tracks">
             <input id = "song-title-input" type="text"
               value={this.state.title}
@@ -152,9 +160,6 @@ class TrackIndex extends React.Component {
           </div>
           <div id="track-index">
             {tracks}
-          </div>
-          <div>
-            {audio}
           </div>
         </div>
       </span>

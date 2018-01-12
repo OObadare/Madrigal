@@ -27,13 +27,20 @@ class User extends React.Component {
               <span id="username">
                 {this.props.users.user.username}
               </span>
-              <span id="followercount"></span>
+              <div id="count">
+                <span id="followedcount"> 0 </span>
+                <span id="followcount"> 0 </span>
+              </div>
+              <div id="follow-text">
+                <span id="followed"> Followed </span>
+                <span id="followers"> Followers </span>
+              </div>
             </div>
           </div>
         </section>
         <section className="userTabs">
-          <button id="playlistcontent" className="tabtoggle">Playlists</button>
-          <button id="likecontent" className="tabtoggle">Likes</button>
+          <button id="playlistcontent" className="tabtoggle">PLAYLISTS</button>
+          <button id="likecontent" className="tabtoggle">LIKES</button>
         </section>
       </div>
     );

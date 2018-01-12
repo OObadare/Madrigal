@@ -255,6 +255,48 @@ header nav a{
 }
 
 #username {
+  padding-bottom: 40px;
+}
+
+#userDetails {
+  line-height: 30px;
+  justify-content: space-around;
+  display: block;
+}
+
+#count {
+  margin-top:50px;
+  margin-bottom: 10px;
+}
+
+#follow-text {
+  width: 300px;
+  text-align: right;
+}
+
+#followedcount {
+  width: 50%;
+  text-align: center;
+  font-size: 52px;
+  margin: 30px;
+}
+
+#followcount {
+  width: 50%;
+  text-align: center;
+  font-size: 52px;
+  margin: 30px;
+}
+
+#userDetails {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  color: white;
+  font-family: 'Montserrat' bold;
+}
+
+#username {
   padding-left: 30px;
   margin-top: 400px;
   font-size: 42px;
@@ -288,6 +330,28 @@ header nav a{
   border: 1px solid black;
   border-bottom: none;
   color: inherit;
+}
+
+#playlistcontent {
+  font-size: 16px;
+  font-weight: 700;
+  color: darkgray;
+}
+
+#likecontent {
+  font-size: 16px;
+  font-weight: 700;
+  color: darkgray;
+}
+
+#likecontent:focus{
+  border-bottom: 5px solid gray;
+  outline: none;
+}
+
+#playlistcontent:focus {
+  border-bottom: 5px solid gray;
+  outline: none;
 }
 // Playlist Form
 
@@ -387,6 +451,7 @@ label {
 #upload-tracks {
   width: 20%;
   text-align: center;
+  font-family: 'Montserrat', sans-serif
 }
 
 #upload-tracks input {
@@ -400,9 +465,12 @@ label {
   height: 30px;
 }
 
+#tracklist-holder {
+  width: 28%
+}
+
 
 #tracklists {
-  width: 30%
 }
 
 #song {
@@ -413,12 +481,19 @@ label {
   position: absolute;
   z-index: -1;
 }
+
+audio {
+  background-color: rgb(51, 51, 51);
+
+}
 //Track-Index - track-div
 
 #track-div {
   background-color: white;
   border-top: 1px solid gray;
   margin: 3px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #title-div{
@@ -438,4 +513,28 @@ label {
 #artist-span {
 color: gray;
 font-size: 14px;
+}
+
+#add-track-to-tracklist {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  border-radius: 30px;
+  background-image: image-url('plus-sign.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+#play-track {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  border-radius: 30px;
+  background-image: image-url('grey-play.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  outline: none;
+  cursor: pointer;
 }
