@@ -57,7 +57,7 @@ class TrackIndex extends React.Component {
       var audiofile = this.props.audio;
       return (
         <audio autoPlay>
-          <source src={audiofile.song} type="audio/mpeg" />
+          <source src={audiofile.song}/>
         </audio>
       );
     }
