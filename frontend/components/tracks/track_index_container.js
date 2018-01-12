@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
     track: state.track,
     tracks: state.tracks,
     ids: state.ids,
-    id: state.tracks.id
+    id: state.tracks.id,
+    playlists: state.playlists
   };
 };
 

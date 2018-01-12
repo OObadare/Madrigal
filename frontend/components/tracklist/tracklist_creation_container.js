@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
     track: state.tracks.track,
     tracks: state.tracks.tracks,
     tracklists: state.tracklists,
-    trackId: state.ids.id
+    trackId: state.ids.id,
+    playlists: state.playlists
   };
 };
 
@@ -18,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getTracklist: (tracklistId) => dispatch(getTracklist(tracklistId)),
     getTracklists: () => dispatch(getTracklists()),
-    createTracklist: (track) => dispatch(createTracklist(track))
+    createTracklist: (tracklist) => dispatch(createTracklist(tracklist))
   };
 };
 

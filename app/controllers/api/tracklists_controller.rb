@@ -1,6 +1,7 @@
-class Api::TracklistController < ApplicationController
+class Api::TracklistsController < ApplicationController
 
   def create
+    debugger
     @tracklist = Tracklist.new(tracklist_params)
     @tracklist.save!
 
@@ -10,7 +11,7 @@ class Api::TracklistController < ApplicationController
     @tracklists = Tracklist.all
   end
 
-  def track_params
+  def tracklist_params
     params.require(:tracklist).permit(:playlist_id, :track_id, :annotation)
   end
 end

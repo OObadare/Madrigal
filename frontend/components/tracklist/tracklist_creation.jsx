@@ -19,12 +19,26 @@ class TracklistCreation extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    if (JSON.stringify(this.props.playlists) !== JSON.stringify({})) {
+      const playlist_id = this.props.playlists.playlist.id;
+      this.state.trackIds.map((track_id) => {
+        let tracklist = {track_id, playlist_id};
+        this.props.createTracklist(tracklist);
+      });
+      //map over the trackId array, calling createTracklist on each of them.
+      //call the create tracklist action (on backend, set the playlist id to Playlist.last)
+      //setting the playlist_id to the play
+    }
+  }
+
   componentWillReceiveProps(newProps) {
     if (JSON.stringify(newProps.trackId) !== JSON.stringify(this.props.trackId)){
       this.setState({
         trackIds: this.state.trackIds.concat(newProps.trackId)
       });
     }
+
   }
 
   idsToTracks() {
@@ -32,7 +46,7 @@ class TracklistCreation extends React.Component {
     return this.state.trackIds.map((key) =>{
       if (that.props.tracks[key]) {
         return (
-          <div id="tracklist-div">
+          <div id="tracklist-div" key={key}>
             <div id="title-div">
               {that.props.tracks[key].title} <span id="artist-span">{that.props.tracks[key].artist}</span>
           </div>
@@ -71,7 +85,6 @@ class TracklistCreation extends React.Component {
     // tracklist = this.showTracklists();
     return (
       <div id="tracklist-base-div">
-        Stuff should be here
         {this.idsToTracks()}
       </div>
     );

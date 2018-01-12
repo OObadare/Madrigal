@@ -27,9 +27,9 @@ export const receiveTracklists = (tracklists) => {
   });
 };
 
-export const createTracklist = (formData) => (dispatch) => {
+export const createTracklist = (tracklist) => (dispatch) => {
   return (
-    TracklistUtil.submitTracklist(formData).then((tracklist)=> (
+    TracklistUtil.submitTracklist(tracklist).then((tracklist)=> (
       dispatch(receiveTracklist(tracklist))
     )
   ));

@@ -25,6 +25,7 @@ class TrackIndex extends React.Component {
         tracks: this.props.getTracks()
       });
     }
+
   }
 
   componentWillMount() {
@@ -47,7 +48,7 @@ class TrackIndex extends React.Component {
     if (Object.keys(this.props.tracks)[0]) {
       return Object.keys(tracks).map((key) =>{
         return (
-          <div id="track-div">
+          <div id="track-div" key={key}>
             <div id="title-div">
               {tracks[key].title} <span id="artist-span">{tracks[key].artist}</span>
             </div>
