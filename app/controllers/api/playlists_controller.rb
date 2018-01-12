@@ -31,7 +31,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:title, :user_id, :description, :art_file_name)
+    params.require(:playlist).permit(:title, :user_id, :description, :art)
   end
 
 end
