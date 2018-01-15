@@ -1,6 +1,6 @@
 import merge from "lodash/merge";
 
-import {RECEIVE_PLAYLIST} from "../actions/playlist_actions";
+import {RECEIVE_PLAYLIST, RECEIVE_PLAYLISTS} from "../actions/playlist_actions";
 
 
 const playlistReducer = (state = {}, action) => {
@@ -9,6 +9,9 @@ const playlistReducer = (state = {}, action) => {
     case RECEIVE_PLAYLIST:
       const playlist = action.payload;
       return merge({}, { playlist });
+    case RECEIVE_PLAYLISTS:
+      const playlists = action.payload;
+      return merge({}, { playlists });
     default:
       return state;
   }

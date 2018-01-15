@@ -28,3 +28,12 @@ export const fetchPlaylist = playlistid => {
     })
   );
 };
+
+export const fetchAllPlaylists = () => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: 'api/playlists'
+    })
+  );
+};

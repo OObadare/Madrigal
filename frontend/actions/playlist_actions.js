@@ -11,6 +11,13 @@ export const receivePlaylist = function(payload){
   };
 };
 
+export const receivePlaylists = function(payload) {
+  return {
+    type: RECEIVE_PLAYLISTS,
+    payload: payload
+  };
+};
+
 export const createPlaylist = (playlist) => (dispatch) => {
   return (
     PlaylistUtil.submitPlaylist(playlist).then((playlist)=> (
@@ -21,8 +28,17 @@ export const createPlaylist = (playlist) => (dispatch) => {
 
 export const getPlaylist = (id) => (dispatch) => {
   return (
-    PlaylistUtil.getPlaylist(id).then((playlist) => (
+    PlaylistUtil.fetchPlaylist(id).then((playlist) => (
       dispatch(receivePlaylist(playlist))
+    ))
+  );
+};
+
+
+export const getAllPlaylists = () => (dispatch) => {
+  return (
+    PlaylistUtil.fetchAllPlaylists().then((playlists) => (
+      dispatch(receivePlaylists(playlists))
     ))
   );
 };
