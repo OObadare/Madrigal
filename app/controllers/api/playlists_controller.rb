@@ -19,6 +19,11 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
+  def index
+    @playlists = Playlist.all
+
+  end
+
 
   def update
     @playlist = Playlist.find(params[:id])
