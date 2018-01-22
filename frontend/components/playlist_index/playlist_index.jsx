@@ -17,7 +17,7 @@ class PlaylistIndex extends React.Component {
       return Object.keys(playlists).map((key) =>{
         return (
             <div id="playlist-info-holder" key={key}>
-              <div id="title-div">
+              <div id="playlist-title-div">
                 {playlists[key].title}
               </div>
               <img id="album-art" src={playlists[key].art}></img>
