@@ -37,3 +37,15 @@ export const fetchAllPlaylists = () => {
     })
   );
 };
+
+export const fetchUserPlaylists = (id) => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: 'api/playlists',
+      data: {
+        user_id: id
+      }
+    })
+  );
+};

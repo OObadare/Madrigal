@@ -119,6 +119,21 @@ header nav a{
 
 
 //for the login and sign up modal
+#GreetingHolder {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#GreetingHolder span {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.login-signup {
+  margin-right: 20px;
+}
+
 #loginpath{
   padding: 5px 10px;
   background-color: rgb(47, 54, 74);
@@ -252,13 +267,16 @@ header nav a{
   flex-wrap: wrap;
   padding-left: 20px;
   padding-right: 20px;
+  z-index: -10;
 }
 
 #playlist-title-div {
+  position:absolute;
   color: white;
   font-size: 20px;
   font-weight: 700;
   text-shadow: 1px 1px black;
+  z-index: -4;
 }
 
 #playlist-info-holder {
@@ -271,7 +289,7 @@ header nav a{
 
 #album-art {
   position: absolute;
-  z-index: -1;
+  z-index: -8;
   left: -5px;
   top: -5px;
   width: 100%;

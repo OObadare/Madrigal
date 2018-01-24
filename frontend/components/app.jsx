@@ -18,7 +18,6 @@ const App = () => (
   <div>
     <ModalContainer />
     <header>
-      <h1>Madrigal</h1>
       <GreetingContainer />
     </header>
     <Switch>
