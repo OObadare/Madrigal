@@ -23,7 +23,7 @@ body {
 header {
   background-color: #2f364a;
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   align-items: center;
   justify-content: space-between;
   color: white;
@@ -56,11 +56,12 @@ h1 {
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
+  position: relative;
+  left:500px;
 }
 
 .dropdown {
   position: relative;
-  right: 180px;
   float: left;
 }
 
@@ -73,6 +74,8 @@ h1 {
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .dropcontent br {
@@ -284,6 +287,8 @@ header nav a{
   width: 300px;
   height: 300px;
   margin: 25px;
+  z-index: -1;
+
   // background-image: image-url('login-user.png');
 }
 

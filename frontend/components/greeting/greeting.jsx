@@ -25,6 +25,7 @@ class Greeting extends React.Component {
   }
 
   changeHistory() {
+    debugger
     this.props.history.push('/');
   }
 
@@ -49,7 +50,8 @@ class Greeting extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div id="GreetingHolder" >
+          <span onClick={this.changeHistory}>Madrigal</span>
           <Link to={`/playlists/new`}>
             <button type="button" id="newmixbtn"> New Mix </button>
           </Link>
