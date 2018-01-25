@@ -49,9 +49,6 @@ class TrackIndex extends React.Component {
     this.props.receiveAudio(track);
   }
 
-
-
-
   playAudio() {
     if (Object.keys(this.props.audio).length > 0){
       var audiofile = this.props.audio;

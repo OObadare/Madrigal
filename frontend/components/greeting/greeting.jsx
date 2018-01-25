@@ -39,7 +39,7 @@ class Greeting extends React.Component {
     if (!this.props.currentUser) {
       return (
         <div id="GreetingHolder">
-          <span onClick={this.changeHistory}>Madrigal</span>
+          <span id="Homelink" onClick={this.changeHistory}>Madrigal</span>
           <div className="login-signup">
             <button onClick={this.handleModal} id="loginpath"> Log in</button>
             &nbsp;
@@ -50,7 +50,7 @@ class Greeting extends React.Component {
     } else {
       return (
         <div id="GreetingHolder" >
-          <span onClick={this.changeHistory}>Madrigal</span>
+          <span id="Homelink" onClick={this.changeHistory}>Madrigal</span>
           <Link to={`/playlists/new`}>
             <button type="button" id="newmixbtn"> New Mix </button>
           </Link>

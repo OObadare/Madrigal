@@ -18,7 +18,7 @@ class PlaylistIndex extends React.Component {
 
   showAllPlaylists() {
     const playlists = this.props.playlists.playlists;
-    if (Object.keys(this.props.playlists)[0]) {
+    if ((playlists) && (Object.keys(this.props.playlists)[0])) {
       return Object.keys(playlists).map((key) =>{
         return (
             <div id="playlist-info-holder" key={key}>

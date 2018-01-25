@@ -137,6 +137,10 @@ header nav a{
   margin-right: 20px;
 }
 
+#Homelink:hover {
+  cursor: pointer;
+}
+
 #loginpath{
   padding: 5px 10px;
   background-color: rgb(47, 54, 74);
@@ -630,4 +634,31 @@ font-size: 14px;
   font-weight: 400;
   cursor: pointer;
   line-height: 10px;
+}
+
+
+
+
+
+
+
+
+
+//Playlist show
+
+#playlistInfoHolder {
+  color: white;
+  padding-top: 20px;
+  display: flex;
+  background-color: rgb(76, 76, 76);
+}
+
+#playlistArt {
+  height: 400px;
+  margin: 0px 10px 20px 60px;
+}
+
+#playlistTitle {
+  font-weight: 900;
+  font-size: 42px;
 }

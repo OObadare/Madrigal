@@ -20,7 +20,7 @@ class TracklistCreation extends React.Component {
   }
 
   componentWillUnmount() {
-    if (JSON.stringify(this.props.playlists) !== JSON.stringify({})) {
+    if ((this.props.playlists.playlist) && (JSON.stringify(this.props.playlists) !== JSON.stringify({}))) {
       const playlist_id = this.props.playlists.playlist.id;
       this.state.trackIds.map((track_id) => {
         let tracklist = {track_id, playlist_id};
