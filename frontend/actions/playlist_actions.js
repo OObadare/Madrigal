@@ -42,3 +42,11 @@ export const getAllPlaylists = () => (dispatch) => {
     ))
   );
 };
+
+export const getUserPlaylists = (user_id) => (dispatch) => {
+  return (
+    PlaylistUtil.fetchUserPlaylists(user_id).then((playlists) => (
+      dispatch(receivePlaylists(playlists))
+    ))
+  );
+};

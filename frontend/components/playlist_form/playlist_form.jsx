@@ -21,7 +21,7 @@ class PlaylistForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     var formData = new FormData();
-    formData.append("playlist[art_file_name]", this.state.artFile);
+    formData.append("playlist[art]", this.state.artFile);
     formData.append("playlist[title]", this.state.title);
     formData.append("playlist[description]", this.state.description);
     formData.append("playlist[user_id]", this.props.currentUser.id);

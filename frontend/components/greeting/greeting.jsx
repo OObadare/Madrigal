@@ -11,6 +11,7 @@ class Greeting extends React.Component {
       prevComponent: ""
     };
     this.handleModal = this.handleModal.bind(this);
+    this.changeHistory = this.changeHistory.bind(this);
   }
   handleModal(e) {
     this.props.show(<SessionFormContainer formType={e.currentTarget.id}/>);
@@ -23,6 +24,10 @@ class Greeting extends React.Component {
     this.props.getUser(this.props.currentUser);
   }
 
+  changeHistory() {
+    this.props.history.push('/');
+  }
+
   // //componentDidUpdate isn't working, work on this later
   // componentWillUpdate() {
   //   if ((this.state.errors !== null) && (!this.props.currentUser)) {
@@ -33,15 +38,19 @@ class Greeting extends React.Component {
   render() {
     if (!this.props.currentUser) {
       return (
-        <div className="login-signup">
-          <button onClick={this.handleModal} id="loginpath"> Log in</button>
-          &nbsp;
-          <button onClick={this.handleModal} id="signuppath"> Sign Up</button>
+        <div id="GreetingHolder">
+          <span onClick={this.changeHistory}>Madrigal</span>
+          <div className="login-signup">
+            <button onClick={this.handleModal} id="loginpath"> Log in</button>
+            &nbsp;
+            <button onClick={this.handleModal} id="signuppath"> Sign Up</button>
+          </div>
         </div>
       );
     } else {
       return (
-        <div>
+        <div id="GreetingHolder" >
+          <span onClick={this.changeHistory}>Madrigal</span>
           <Link to={`/playlists/new`}>
             <button type="button" id="newmixbtn"> New Mix </button>
           </Link>

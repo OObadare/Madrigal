@@ -1,4 +1,5 @@
 import React from 'react';
+import PlaylistIndexContainer from '../playlist_index/playlist_index_container';
 
 class User extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class User extends React.Component {
       user: this.props.user
     };
     this.getUser = this.props.getUser.bind(this);
+    this.openPlaylists = this.openPlaylists.bind(this);
   }
 
   componentDidMount() {
@@ -14,6 +16,22 @@ class User extends React.Component {
     this.setState({
       user: this.props.users.user
     });
+  }
+
+  componentWillMount() {
+    this.props.getUserPlaylists(parseInt(this.props.match.params.id));
+  }
+
+  openPlaylists(component) {
+    //if this.props.match.params.id (gives a string of the user param e.g. "5")
+    //then I want to filter the shown playlists by that user_id, while if it's likes
+    //I want to get the liked playlists from that user.
+    if (component === "user") {
+
+    } else if (component === "likes") {
+
+    }
+
   }
 
 
@@ -39,8 +57,11 @@ class User extends React.Component {
           </div>
         </section>
         <section className="userTabs">
-          <button id="playlistcontent" className="tabtoggle">PLAYLISTS</button>
-          <button id="likecontent" className="tabtoggle">LIKES</button>
+          <button id="playlistcontent" onClick={this.openPlaylists("user")} className="tabtoggle">PLAYLISTS</button>
+          <button id="likecontent" onClick={this.openPlaylists("likes")} className="tabtoggle">LIKES</button>
+        </section>
+        <section className="PlaylistIndex">
+          <PlaylistIndexContainer />
         </section>
       </div>
     );

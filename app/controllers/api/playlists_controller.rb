@@ -19,6 +19,14 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
+  def index
+    if params[:user_id] != nil
+      @playlists = Playlist.where(user_id: params[:user_id].to_i)
+    else
+      @playlists = Playlist.all
+    end
+  end
+
 
   def update
     @playlist = Playlist.find(params[:id])
