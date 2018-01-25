@@ -4,6 +4,9 @@ class PlaylistIndex extends React.Component {
 
   constructor (props) {
     super(props);
+    this.state = {
+      currentUser: this.props.currentUser.username
+    };
     this.showAllPlaylists = this.showAllPlaylists.bind(this);
   }
 
@@ -37,7 +40,7 @@ class PlaylistIndex extends React.Component {
 
     return (
       <div>
-        <div> This is the playlist index component! </div>
+        <div> Hello, {this.state.currentUser}! </div>
         <div id="all-playlist-holder">
           {this.showAllPlaylists()}
         </div>
