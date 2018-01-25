@@ -25,7 +25,6 @@ class Greeting extends React.Component {
   }
 
   changeHistory() {
-    debugger
     this.props.history.push('/');
   }
 

@@ -8,7 +8,9 @@ class PlaylistIndex extends React.Component {
   }
 
   componentWillMount() {
-    this.props.getAllPlaylists();
+    if (this.props.history.location.pathname === "/"){
+      this.props.getAllPlaylists();
+    }
   }
 
   showAllPlaylists() {

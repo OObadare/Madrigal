@@ -21,11 +21,9 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     if params[:user_id] != nil
-      debugger
       @playlists = Playlist.where(user_id: params[:user_id].to_i)
     else
       @playlists = Playlist.all
-      debugger
     end
   end
 
