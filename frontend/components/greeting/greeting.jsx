@@ -39,7 +39,7 @@ class Greeting extends React.Component {
     if (!this.props.currentUser) {
       return (
         <div id="GreetingHolder">
-          <span id="Homelink" onClick={this.changeHistory}>Madrigal</span>
+          <Link to={"/"} id="Homelink" >Madrigal</Link>
           <div className="login-signup">
             <button onClick={this.handleModal} id="loginpath"> Log in</button>
             &nbsp;

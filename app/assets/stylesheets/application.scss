@@ -648,14 +648,40 @@ font-size: 14px;
 //Playlist show
 
 #playlistInfoHolder {
+  position: relative;
   color: white;
   padding-top: 20px;
   display: flex;
   background-color: rgb(76, 76, 76);
 }
 
+#imgContainer {
+
+}
+
+#imgContainer:hover #overlay{
+  opacity: .5;
+}
+
+#overlay{
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  left: 60px;
+  right: 0;
+  height: 400px;
+  width: 400px;
+  opacity: 0;
+  transition: .5s ease;
+  background-image: image-url("play-button.png");
+  background-repeat: no-repeat;
+  background-color: lightgray;
+  background-position: center;
+}
+
 #playlistArt {
   height: 400px;
+  width: 400px;
   margin: 0px 10px 20px 60px;
 }
 
