@@ -53,6 +53,14 @@ export const getTracks = () => (dispatch) => {
   );
 };
 
+export const getPlaylistTracks = (playlistid) => (dispatch) => {
+  return (
+    TrackUtil.fetchPlaylistTracks(playlistid).then((tracks) => (
+      dispatch(receiveTracks(tracks))
+    ))
+  );
+};
+
 // export const getAudio = (id) => (dispatch) => {
 //   return (
 //     TrackUtil.fetchTrack(id).then((track) => (

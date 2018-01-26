@@ -44,7 +44,7 @@ export const getTracklist = (id) => (dispatch) => {
   );
 };
 
-export const fetchPlaylistTracklists = (playlistId) => (dispatch) => {
+export const getPlaylistTracklists = (playlistId) => (dispatch) => {
   return (
     TracklistUtil.fetchTracklists(playlistId).then((tracklists) => (
       dispatch(receiveTracklists(tracklists))

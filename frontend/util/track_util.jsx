@@ -28,10 +28,14 @@ export const fetchTrack = trackid => {
   );
 };
 
-// export const fetchPlaylistTracks = (id) => {
-//   return (
-//     $.ajax({
-//       method:'GET',
-//     })
-//   )
-// }
+export const fetchPlaylistTracks = (playlistid) => {
+  return (
+    $.ajax({
+      method:'GET',
+      url: `api/playlists/${playlistid}/tracks`,
+      data: {
+        playlist_id: playlistid
+      }
+    })
+  );
+};
