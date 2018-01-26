@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+
 
 class PlaylistIndex extends React.Component {
 
   constructor (props) {
     super(props);
-    this.state = {
-      currentUser: this.props.currentUser.username
-    };
+    if (this.props.currentUser != null){
+      this.state = {
+        currentUser: this.props.currentUser.username
+      };
+    }
     this.showAllPlaylists = this.showAllPlaylists.bind(this);
   }
 
@@ -21,12 +25,12 @@ class PlaylistIndex extends React.Component {
     if ((playlists) && (Object.keys(this.props.playlists)[0])) {
       return Object.keys(playlists).map((key) =>{
         return (
-            <div id="playlist-info-holder" key={key}>
+            <Link to={`/playlists/${key}`} id="playlist-info-holder" key={key}>
               <div id="playlist-title-div">
                 {playlists[key].title}
               </div>
-              <img id="album-art" src={playlists[key].art}></img>
-            </div>
+              <img id="album-art" playlistid={key} src={playlists[key].art}></img>
+            </Link>
         );
       });
     } else {
@@ -35,17 +39,25 @@ class PlaylistIndex extends React.Component {
   }
 
 
-
   render () {
-
-    return (
-      <div>
-        <div> Hello, {this.state.currentUser}! </div>
-        <div id="all-playlist-holder">
-          {this.showAllPlaylists()}
+    if (this.props.currentUser){
+      return (
+        <div>
+          <div> Hello, {this.props.currentUser.username}! </div>
+          <div id="all-playlist-holder">
+            {this.showAllPlaylists()}
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return(
+        <div>
+          <div id="all-playlist-holder">
+            {this.showAllPlaylists()}
+          </div>
+        </div>
+      );
+    }
   }
 
 }

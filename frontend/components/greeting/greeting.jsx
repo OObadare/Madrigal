@@ -11,7 +11,7 @@ class Greeting extends React.Component {
       prevComponent: ""
     };
     this.handleModal = this.handleModal.bind(this);
-    this.changeHistory = this.changeHistory.bind(this);
+    // this.changeHistory = this.changeHistory.bind(this);
   }
   handleModal(e) {
     this.props.show(<SessionFormContainer formType={e.currentTarget.id}/>);
@@ -50,19 +50,21 @@ class Greeting extends React.Component {
     } else {
       return (
         <div id="GreetingHolder" >
-          <span id="Homelink" onClick={this.changeHistory}>Madrigal</span>
-          <Link to={`/playlists/new`}>
-            <button type="button" id="newmixbtn"> New Mix </button>
-          </Link>
-          <div className="dropdown">
-            <button className="dropbtn" />
-            <div className="dropcontent">
-              <Link to={`/playlists/new`}>New Mix</Link>
-              <br></br>
-              <span></span>
-              <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
-              <br></br>
-              <div className="header-button" onClick={this.props.logout}>Log Out</div>
+          <Link to={"/"} id="Homelink" >Madrigal</Link>
+          <div>
+            <Link to={`/playlists/new`}>
+              <button type="button" id="newmixbtn"> New Mix </button>
+            </Link>
+            <div className="dropdown">
+              <button className="dropbtn" />
+              <div className="dropcontent">
+                <Link to={`/playlists/new`}>New Mix</Link>
+                <br></br>
+                <span></span>
+                <Link to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
+                <br></br>
+                <div className="header-button" onClick={this.props.logout}>Log Out</div>
+              </div>
             </div>
           </div>
         </div>
