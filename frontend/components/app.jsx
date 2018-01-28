@@ -6,6 +6,7 @@ import UserContainer from './user/user_container.js';
 import PlaylistFormContainer from './playlist_form/playlist_form_container';
 import PlaylistIndexContainer from './playlist_index/playlist_index_container';
 import PlaylistShowContainer from './playlist_show/playlist_show_container';
+import MusicPlayerContainer from './music_player/music_player_container';
 import {
   Route,
   Redirect,
@@ -27,6 +28,9 @@ const App = () => (
       <Route path="/playlists/:id" component={PlaylistShowContainer} />
       <Route path="/" component={PlaylistIndexContainer} />
     </Switch>
+    <div className="SoundPlayerHolder">
+      <MusicPlayerContainer />
+    </div>
   </div>
 );
 
