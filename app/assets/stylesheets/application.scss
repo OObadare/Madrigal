@@ -27,10 +27,18 @@ header {
   align-items: center;
   justify-content: space-between;
   color: white;
-  height: 70px;
+  height: 90px;
   font-size: 16px;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 a {
@@ -56,10 +64,12 @@ h1 {
   font-weight: 400;
   cursor: pointer;
   position: relative;
+  right: 70px;
 }
 
 .dropdown {
   position: relative;
+  right: 40px;
   float: left;
 }
 
@@ -98,6 +108,10 @@ h1 {
   background-color: rgb(35, 40, 55);
   display: block;
   text-decoration: none;
+}
+
+.dropcontent >*:hover {
+  background-color: slategrey;
 }
 
 .dropcontent .header-button {
@@ -696,8 +710,14 @@ font-size: 14px;
 
 //AudioPlayer
 #MusicPlayerHolder {
+  // position: fixed;
   width: 100%;
-  position: fixed;
+  height: 90px;
+  left: 45%;
+}
+
+audio {
+  width: 100%
 }
 
 audio::-webkit-media-controls-panel {

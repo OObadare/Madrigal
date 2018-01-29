@@ -28,9 +28,9 @@ const App = () => (
       <Route path="/playlists/:id" component={PlaylistShowContainer} />
       <Route path="/" component={PlaylistIndexContainer} />
     </Switch>
-    <div className="SoundPlayerHolder">
+    <footer className="SoundPlayerHolder">
       <MusicPlayerContainer />
-    </div>
+    </footer>
   </div>
 );
 
