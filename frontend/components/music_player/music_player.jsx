@@ -39,7 +39,7 @@ class MusicPlayer extends React.Component {
   render() {
     if (this.state.playing) {
       return (
-        <div>
+        <section id="MusicPlayerHolder">
           <div id="PlaylistLoadDiv" onClick={this.handleLoad}> Hit this to load the last playlist you were on!</div>
           <audio id="PlaylistPlayer" ref ="audio" key={this.state.playing.id} controls="controls" autoPlay onEnded={this.handleEnd} >
             <source src={this.state.playing.song} type="audio/mpeg" />
@@ -47,7 +47,7 @@ class MusicPlayer extends React.Component {
           <div>
             {this.state.playing.title}
           </div>
-        </div>
+        </section>
       );
     } else if (this.props.playlist) {
       return (
