@@ -1,4 +1,5 @@
 import React from 'react';
+// import MusicPlayer from '../music_player.jsx'
 
 class PlaylistShow extends React.Component {
   constructor(props) {
@@ -20,11 +21,10 @@ class PlaylistShow extends React.Component {
       return (
         <section id="playlistInfoHolder">
           <div id="imgContainer">
-            <img id="playlistArt" src={this.props.playlist.art}></img>
+            <img id="playlistArt" src={this.props.playlist.art} ></img>
             <div id="overlay"></div>
           </div>
           <div id="playlistTitle">{this.props.playlist.title}</div>
-
         </section>
       );
     }

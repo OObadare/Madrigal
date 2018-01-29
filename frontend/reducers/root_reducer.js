@@ -9,6 +9,7 @@ import tracks from "./track_reducer";
 import tracklists from "./tracklist_reducer";
 import ids from "./id_reducer";
 import audio from "./audio_reducer";
+// import nowPlaying from "./now_playing_reducer";
 
 const rootReducer = combineReducers({
   session,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   tracklists,
   ids,
   audio
+  // nowPlaying
 });
 
 export default rootReducer;
