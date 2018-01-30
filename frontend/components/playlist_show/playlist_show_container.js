@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getPlaylist } from '../../actions/playlist_actions';
 import { getPlaylistTracks, loadNow, unload } from '../../actions/track_actions';
+import { getUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     playlist: state.playlists.playlist,
-    users: state.users
+    users: state.users,
+    tracks: state.tracks
   };
 };
 
@@ -17,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     getPlaylist:(id) => dispatch(getPlaylist(id)),
     loadNow: () => dispatch(loadNow()),
     unload: () => dispatch(unload()),
-
+    getUser: (id) => dispatch(getUser(id))
   };
 };
 

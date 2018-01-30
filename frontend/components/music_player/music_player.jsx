@@ -7,7 +7,8 @@ class MusicPlayer extends React.Component {
     this.state = {
       playing: "",
       tracks: [],
-      playidx: ""
+      playidx: "",
+      playlist: ""
     };
     this.handleLoad = this.handleLoad.bind(this);
     this.handleEnd = this.handleEnd.bind(this);
@@ -35,7 +36,7 @@ class MusicPlayer extends React.Component {
     // e.preventDefault;
     //can't access element by trying to hit the zeroth index
     const trackkeys = Object.keys(this.props.tracks);
-    this.setState({tracks: this.props.tracks, playing: this.props.tracks[trackkeys[0]], playidx: 0}, function(){
+    this.setState({playlist: this.props.playlist, tracks: this.props.tracks, playing: this.props.tracks[trackkeys[0]], playidx: 0}, function(){
       this.refs.audio.pause();
       this.refs.audio.load();
       this.refs.audio.play();
@@ -47,12 +48,19 @@ class MusicPlayer extends React.Component {
     if (this.state.playing) {
       return (
         <section id="MusicPlayerHolder">
+          <span id="currentTrackInfo">
+            <img id="thumbnail" src={this.state.playlist.art}></img>
+            <span id="TrackTitleAlbumArtist">
+              <ul id="infolist">
+                <li>Title: {this.state.playing.title}</li>
+                <li>Artist: {this.state.playing.artist}</li>
+                <li>Album: {this.state.playing.album}</li>
+              </ul>
+            </span>
+          </span>
           <audio id="PlaylistPlayer" ref ="audio" key={this.state.playing.id} controls="controls" controlsList="nodownload" autoPlay onEnded={this.handleEnd} >
             <source src={this.state.playing.song} type="audio/mpeg" />
           </audio>
-          <div id="currentTrackInfo">
-            {this.state.playing.title}
-          </div>
         </section>
       );
     } else {
