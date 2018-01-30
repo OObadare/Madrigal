@@ -27,7 +27,7 @@ header {
   align-items: center;
   justify-content: space-between;
   color: white;
-  height: 90px;
+  height: 70px;
   font-size: 16px;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
@@ -99,6 +99,7 @@ h1 {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  line-height: normal;
 }
 
 .dropdown:hover .dropcontent {
@@ -138,6 +139,8 @@ header nav a{
   width: 100%;
   display: flex;
   justify-content: space-between;
+  line-height: 40px;
+  height: 40px;
 }
 
 #GreetingHolder span {
