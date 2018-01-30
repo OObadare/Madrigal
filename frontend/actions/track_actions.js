@@ -5,7 +5,20 @@ export const FETCH_TRACK = "FETCH_TRACK";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_AUDIO = "RECEIVE_AUDIO";
+export const LOAD_NOW = "LOAD_NOW";
+export const UNLOAD = "UNLOAD";
 
+export const loadNow = () => {
+  return ({
+    type: LOAD_NOW
+  });
+};
+
+export const unload = () => {
+  return ({
+    type: UNLOAD
+  });
+};
 
 export const receiveTrack = (track) => {
   return ({

@@ -13,6 +13,13 @@ class MusicPlayer extends React.Component {
     this.handleEnd = this.handleEnd.bind(this);
   }
 
+  componentWillUpdate() {
+    if (this.props.load) {
+      this.props.unload();
+      this.handleLoad();
+    }
+  }
+
   handleEnd(e) {
     e.preventDefault;
     const trackkeys = Object.keys(this.props.tracks);
@@ -25,7 +32,7 @@ class MusicPlayer extends React.Component {
   }
 
   handleLoad(e) {
-    e.preventDefault;
+    // e.preventDefault;
     //can't access element by trying to hit the zeroth index
     const trackkeys = Object.keys(this.props.tracks);
     this.setState({tracks: this.props.tracks, playing: this.props.tracks[trackkeys[0]], playidx: 0}, function(){
@@ -40,18 +47,13 @@ class MusicPlayer extends React.Component {
     if (this.state.playing) {
       return (
         <section id="MusicPlayerHolder">
-          <div id="PlaylistLoadDiv" onClick={this.handleLoad}> Hit this to load the last playlist you were on!</div>
-          <audio id="PlaylistPlayer" ref ="audio" key={this.state.playing.id} controls="controls" autoPlay onEnded={this.handleEnd} >
+          <audio id="PlaylistPlayer" ref ="audio" key={this.state.playing.id} controls="controls" controlsList="nodownload" autoPlay onEnded={this.handleEnd} >
             <source src={this.state.playing.song} type="audio/mpeg" />
           </audio>
-          <div>
+          <div id="currentTrackInfo">
             {this.state.playing.title}
           </div>
         </section>
-      );
-    } else if (this.props.playlist) {
-      return (
-        <div id="PlaylistLoadDiv" onClick={this.handleLoad}> Hit this to load the last playlist you were on!</div>
       );
     } else {
       return (null);

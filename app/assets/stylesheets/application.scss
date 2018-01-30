@@ -34,7 +34,7 @@ header {
 }
 
 footer {
-  height: 50px;
+  height: 60px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -710,10 +710,16 @@ font-size: 14px;
 
 //AudioPlayer
 #MusicPlayerHolder {
-  // position: fixed;
+  // position: relative;
   width: 100%;
-  height: 90px;
-  left: 45%;
+  height: 60px;
+  // left: 45%;
+}
+
+#currentTrackInfo {
+  position: absolute;
+  bottom: 0;
+  height: 20px;
 }
 
 audio {
@@ -722,6 +728,6 @@ audio {
 
 audio::-webkit-media-controls-panel {
   width: 100%;
-  height: 70px;
+  height: 40px;
   background-color: slategrey;
 }

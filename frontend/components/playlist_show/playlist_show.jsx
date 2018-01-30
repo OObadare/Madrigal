@@ -22,7 +22,7 @@ class PlaylistShow extends React.Component {
         <section id="playlistInfoHolder">
           <div id="imgContainer">
             <img id="playlistArt" src={this.props.playlist.art} ></img>
-            <div id="overlay"></div>
+            <div id="overlay" onClick={this.props.loadNow}></div>
           </div>
           <div id="playlistTitle">{this.props.playlist.title}</div>
         </section>
