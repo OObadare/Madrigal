@@ -9,6 +9,7 @@ class User extends React.Component {
     };
     this.getUser = this.props.getUser.bind(this);
     this.openPlaylists = this.openPlaylists.bind(this);
+    this.playlistCount = this.playlistCount.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +21,15 @@ class User extends React.Component {
 
   componentWillMount() {
     this.props.getUserPlaylists(parseInt(this.props.match.params.id));
+  }
+
+  playlistCount() {
+    if (this.props.playlists.playlists) {
+      debugger
+      return Object.keys(this.props.playlists.playlists).length;
+    } else {
+      return "0 :(";
+    }
   }
 
   openPlaylists(component) {
@@ -46,7 +56,7 @@ class User extends React.Component {
                 {this.props.users.user.username}
               </span>
               <div id="count">
-                <span id="followedcount"> 0 </span>
+                <span id="followedcount"> {this.playlistCount()} </span>
                 <span id="followcount"> 0 </span>
               </div>
               <div id="follow-text">
