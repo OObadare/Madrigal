@@ -6,9 +6,9 @@ class PlaylistIndex extends React.Component {
 
   constructor (props) {
     super(props);
-    if (this.props.currentUser != null){
+    if (this.props.user != null){
       this.state = {
-        currentUser: this.props.currentUser.username
+        user: this.props.user.username
       };
     }
     this.showAllPlaylists = this.showAllPlaylists.bind(this);

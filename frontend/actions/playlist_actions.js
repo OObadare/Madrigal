@@ -3,6 +3,8 @@ import * as PlaylistUtil from '../util/playlist_util';
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const FETCH_PLAYLIST = "FETCH_PLAYLIST";
+export const RECEIVE_LIKE = "CREATE_LIKE";
+export const FETCH_LIKES = "FETCH_LIKES";
 
 export const receivePlaylist = function(payload){
   return {

@@ -10,8 +10,7 @@ class PlaylistShow extends React.Component {
     this.giveInfo = this.giveInfo.bind(this);
     this.listTracks = this.listTracks.bind(this);
   }
-  //playlist ID: this.props.match.params.id
-
+  
   componentDidMount() {
     this.props.getPlaylist(parseInt(this.props.match.params.id));
     this.props.getPlaylistTracks(parseInt(this.props.match.params.id));

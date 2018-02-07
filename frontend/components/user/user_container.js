@@ -7,7 +7,8 @@ import { getUserPlaylists } from '../../actions/playlist_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     playlists: state.playlists,
-    users: state.users
+    users: state.users,
+    currentUser: state.session.currentUser
   };
 };
 

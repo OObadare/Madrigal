@@ -25,7 +25,6 @@ class User extends React.Component {
 
   playlistCount() {
     if (this.props.playlists.playlists) {
-      debugger
       return Object.keys(this.props.playlists.playlists).length;
     } else {
       return "0 :(";

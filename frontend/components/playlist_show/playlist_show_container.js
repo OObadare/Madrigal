@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     playlist: state.playlists.playlist,
     users: state.users,
-    tracks: state.tracks
+    tracks: state.tracks,
+    currentUser: state.session.currentUser
   };
 };
 

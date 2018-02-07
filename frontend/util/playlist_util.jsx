@@ -49,3 +49,15 @@ export const fetchUserPlaylists = (id) => {
     })
   );
 };
+export const submitLike = (userId, playlistId) => {
+  return (
+    $.ajax({
+      method: 'POST',
+      url: 'api/likes',
+      data: {
+        user_id: userId,
+        playlist_id: playlistId
+      }
+    })
+  );
+};

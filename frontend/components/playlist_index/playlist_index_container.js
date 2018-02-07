@@ -6,6 +6,7 @@ import PlaylistIndex from './playlist_index';
 const mapStateToProps = (state, ownProps) => {
   return {
     playlists: state.playlists,
+    user: state.users.user,
     currentUser: state.session.currentUser
   };
 };
