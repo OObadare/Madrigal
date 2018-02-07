@@ -50,7 +50,7 @@ class User extends React.Component {
                 <span id="followcount"> 0 </span>
               </div>
               <div id="follow-text">
-                <span id="followed"> Followed </span>
+                <span id="followed"> Playlists </span>
                 <span id="followers"> Followers </span>
               </div>
             </div>
