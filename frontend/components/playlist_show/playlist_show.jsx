@@ -9,8 +9,10 @@ class PlaylistShow extends React.Component {
     };
     this.giveInfo = this.giveInfo.bind(this);
     this.listTracks = this.listTracks.bind(this);
+    this.showLike = this.showLike.bind(this);
+    this.makeLike = this.makeLike.bind(this);
   }
-  
+
   componentDidMount() {
     this.props.getPlaylist(parseInt(this.props.match.params.id));
     this.props.getPlaylistTracks(parseInt(this.props.match.params.id));
@@ -36,6 +38,18 @@ class PlaylistShow extends React.Component {
     }
   }
 
+  makeLike() {
+    this.props.createLike(this.props.currentUser.id, this.props.playlist.id);
+  }
+
+  showLike() {
+    if (this.props.currentUser) {
+      return (
+        <button onClick={this.makeLike}> CLICK THIS TO LIKE</button>
+      );
+    }
+  }
+
   giveInfo() {
     if (this.props.playlist) {
       return (
@@ -49,6 +63,9 @@ class PlaylistShow extends React.Component {
             <br></br>
             <div id="playlistDescriptionHolder"> Notes: <br></br> {this.props.playlist.description}</div>
             {this.listTracks()}
+          </div>
+          <div>
+            {this.showLike()}
           </div>
         </section>
       );

@@ -9,6 +9,7 @@ import tracks from "./track_reducer";
 import tracklists from "./tracklist_reducer";
 import ids from "./id_reducer";
 import audio from "./audio_reducer";
+import likes from "./like_reducer";
 // import nowPlaying from "./now_playing_reducer";
 
 const rootReducer = combineReducers({
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   tracks,
   tracklists,
   ids,
-  audio
+  audio,
+  likes
   // nowPlaying
 });
 

@@ -1,6 +1,7 @@
 class Api::LikesController < ApplicationController
 
   def create
+    debugger
     @like = Like.new(like_params)
     @like.save!
   end
@@ -27,7 +28,7 @@ class Api::LikesController < ApplicationController
   end
 
   def like_params
-    params.require(:like).permit(:user_id, :playlist_id)
+    params.permit(:like, :user_id, :playlist_id)
   end
 
 end

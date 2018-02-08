@@ -1,1 +1,1 @@
-json.extract! playlist, :id, :user_id, :playlist_id
+json.extract! @like, :id, :user_id, :playlist_id

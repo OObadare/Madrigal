@@ -4,7 +4,7 @@ export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const FETCH_PLAYLIST = "FETCH_PLAYLIST";
 export const RECEIVE_LIKE = "CREATE_LIKE";
-export const FETCH_LIKES = "FETCH_LIKES";
+export const RECEIVE_LIKES = "FETCH_LIKES";
 
 export const receivePlaylist = function(payload){
   return {
@@ -19,6 +19,22 @@ export const receivePlaylists = function(payload) {
     payload: payload
   };
 };
+
+export const receiveLike = function(payload) {
+  return {
+    type: RECEIVE_LIKE,
+    payload: payload
+  };
+};
+
+export const receiveLikes = function (payload) {
+  return {
+    type: RECEIVE_LIKES,
+    payload: payload
+  };
+};
+
+
 
 export const createPlaylist = (playlist) => (dispatch) => {
   return (
@@ -49,6 +65,14 @@ export const getUserPlaylists = (user_id) => (dispatch) => {
   return (
     PlaylistUtil.fetchUserPlaylists(user_id).then((playlists) => (
       dispatch(receivePlaylists(playlists))
+    ))
+  );
+};
+
+export const createLike = (user_id, playlist_id) => (dispatch) => {
+  return (
+    PlaylistUtil.submitLike(user_id, playlist_id).then((like) => (
+      dispatch(receiveLike(like))
     ))
   );
 };

@@ -49,6 +49,7 @@ export const fetchUserPlaylists = (id) => {
     })
   );
 };
+
 export const submitLike = (userId, playlistId) => {
   return (
     $.ajax({
