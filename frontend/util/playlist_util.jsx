@@ -62,3 +62,28 @@ export const submitLike = (userId, playlistId) => {
     })
   );
 };
+
+export const deleteLike = (userId, playlistId) => {
+  return (
+    $.ajax({
+      method: 'DELETE',
+      url: 'api/likes',
+      data: {
+        user_id: userId,
+        playlist_id: playlistId
+      }
+    })
+  );
+};
+
+export const fetchPlaylistLikes = (id) => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: 'api/likes',
+      data: {
+        playlist_id: id
+      }
+    })
+  );
+};

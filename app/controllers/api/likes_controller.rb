@@ -7,6 +7,12 @@ class Api::LikesController < ApplicationController
   end
 
   def show
+    if params[:playlist_id]
+      @likes = Like.where(playlist_id: params[:playlist_id].to_i)
+      debugger
+    elsif params[:user_id]
+      @likes = Like.where(user_id: params[:user_id].to_i)
+    end
 
   end
 

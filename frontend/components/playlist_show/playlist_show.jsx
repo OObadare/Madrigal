@@ -16,6 +16,7 @@ class PlaylistShow extends React.Component {
   componentDidMount() {
     this.props.getPlaylist(parseInt(this.props.match.params.id));
     this.props.getPlaylistTracks(parseInt(this.props.match.params.id));
+    this.props.getPlaylistLikes(parseInt(this.props.match.params.id));
   }
 
   listTracks() {
