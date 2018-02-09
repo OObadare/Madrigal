@@ -1,1 +1,2 @@
-json.extract! @like, :id, :user_id, :playlist_id
+debugger
+json.extract! like, :id, :user_id, :playlist_id

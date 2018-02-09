@@ -4,7 +4,7 @@ export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const FETCH_PLAYLIST = "FETCH_PLAYLIST";
 export const RECEIVE_LIKE = "CREATE_LIKE";
-export const RECEIVE_LIKES = "RECEIVE_USER_LIKES";
+export const RECEIVE_LIKES = "RECEIVE_LIKES";
 
 export const receivePlaylist = function(payload){
   return {
