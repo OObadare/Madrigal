@@ -77,9 +77,11 @@ export const createLike = (user_id, playlist_id) => (dispatch) => {
   );
 };
 
-export const deleteLike = (user_id, playlist_id) => {
+export const deleteLike = (like_id) => (dispatch) => {
   return (
-    PlaylistUtil.deleteLike(user_id, playlist_id)
+    PlaylistUtil.deleteLike(like_id).then((like) => (
+      dispatch(receiveLikes(like))
+    ))
   );
 };
 

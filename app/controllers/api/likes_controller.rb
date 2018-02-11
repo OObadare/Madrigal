@@ -25,13 +25,13 @@ class Api::LikesController < ApplicationController
 
   def destroy
     #should just make the like aplode
-    @like = Like.find_by_params(params[:user_id], params[:playlist_id])
+    @like = Like.find(params[:id])
     @like.destroy
 
   end
 
   def like_params
-    params.permit(:like, :user_id, :playlist_id)
+    params.permit(:like, :id, :user_id, :playlist_id)
   end
 
 end

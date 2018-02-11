@@ -1,7 +1,7 @@
 import PlaylistShow from "./playlist_show";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getPlaylist, createLike, getPlaylistLikes } from '../../actions/playlist_actions';
+import { getPlaylist, createLike, deleteLike, getPlaylistLikes } from '../../actions/playlist_actions';
 import { getPlaylistTracks, loadNow, unload } from '../../actions/track_actions';
 import { getUser } from '../../actions/user_actions';
 
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     users: state.users,
     tracks: state.tracks,
     currentUser: state.session.currentUser,
-    likes: state.likes
+    likes: state.likes.likes
   };
 };
 
@@ -23,6 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     unload: () => dispatch(unload()),
     getUser: (id) => dispatch(getUser(id)),
     createLike: (user_id, playlist_id) => dispatch(createLike(user_id, playlist_id)),
+    deleteLike: (likeId) => dispatch(deleteLike(likeId)),
     getPlaylistLikes: (playlist_id) => dispatch(getPlaylistLikes(playlist_id))
   };
 };

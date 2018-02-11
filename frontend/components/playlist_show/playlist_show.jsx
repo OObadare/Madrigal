@@ -11,6 +11,7 @@ class PlaylistShow extends React.Component {
     this.listTracks = this.listTracks.bind(this);
     this.showLike = this.showLike.bind(this);
     this.makeLike = this.makeLike.bind(this);
+    this.destroyLike = this.destroyLike.bind(this);
   }
 
   componentDidMount() {
@@ -43,11 +44,34 @@ class PlaylistShow extends React.Component {
     this.props.createLike(this.props.currentUser.id, this.props.playlist.id);
   }
 
+  destroyLike() {
+    const curr = this.props.currentUser;
+    const likeArr = Object.values(this.props.likes);
+    const found = likeArr.find((like) => {
+      return like.user_id === curr.id;
+    });
+    this.props.deleteLike(found.id);
+  }
+
   showLike() {
+
     if (this.props.currentUser) {
-      return (
-        <button onClick={this.makeLike}> CLICK THIS TO LIKE</button>
-      );
+      const curr = this.props.currentUser;
+      if (typeof this.props.likes !== "undefined"){
+        const likeArr = Object.values(this.props.likes);
+        const found = likeArr.find((like) => {
+          return like.user_id === curr.id;
+        });
+        if (typeof found === "undefined" ) {
+          return (
+            <button onClick={this.makeLike}> CLICK THIS TO LIKE</button>
+          );
+        } else {
+          return (
+            <button onClick={this.destroyLike}> CLICK THIS TO UNLIKE</button>
+          );
+        }
+      }
     }
   }
 

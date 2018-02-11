@@ -63,15 +63,11 @@ export const submitLike = (userId, playlistId) => {
   );
 };
 
-export const deleteLike = (userId, playlistId) => {
+export const deleteLike = (likeId) => {
   return (
     $.ajax({
       method: 'DELETE',
-      url: 'api/likes',
-      data: {
-        user_id: userId,
-        playlist_id: playlistId
-      }
+      url: `api/likes/${likeId}`,
     })
   );
 };
