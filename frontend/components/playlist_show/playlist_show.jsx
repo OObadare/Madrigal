@@ -8,6 +8,7 @@ class PlaylistShow extends React.Component {
       playlist: this.props.playlist
     };
     this.giveInfo = this.giveInfo.bind(this);
+    this.playlistStats = this.playlistStats.bind(this);
     this.listTracks = this.listTracks.bind(this);
     this.showLike = this.showLike.bind(this);
     this.makeLike = this.makeLike.bind(this);
@@ -53,6 +54,23 @@ class PlaylistShow extends React.Component {
     this.props.deleteLike(found.id);
   }
 
+  playlistStats() {
+    if (this.props.tracks.tracks !== undefined){
+      const trackNum = Object.keys(this.props.tracks.tracks).length;
+      if (typeof this.props.likes !== "undefined"){
+        debugger
+        const likeNum = Object.keys(this.props.likes).length;
+        return (
+          <div> {trackNum} tracks | {likeNum} likes</div>
+        );
+      } else {
+        return (
+          <div> {trackNum} tracks | 0 likes</div>
+        );
+      }
+    }
+  }
+
   showLike() {
 
     if (this.props.currentUser) {
@@ -64,13 +82,15 @@ class PlaylistShow extends React.Component {
         });
         if (typeof found === "undefined" ) {
           return (
-            <button onClick={this.makeLike}> CLICK THIS TO LIKE</button>
+            <object id="likebutton" data="https://i.imgur.com/3AN2eMU.png" onClick={this.makeLike}>
+            </object>
           );
         } else {
           return (
-            <button onClick={this.destroyLike}> CLICK THIS TO UNLIKE</button>
+            <object id ="unlikebutton" data="https://i.imgur.com/6htu2hL.png" onClick={this.destroyLike}></object>
           );
         }
+      } else {
       }
     }
   }
@@ -87,10 +107,11 @@ class PlaylistShow extends React.Component {
             {this.props.playlist.title}
             <br></br>
             <div id="playlistDescriptionHolder"> Notes: <br></br> {this.props.playlist.description}</div>
+            <div id="playlistStatsHolder"> {this.playlistStats()} </div>
+            {this.showLike()}
             {this.listTracks()}
           </div>
           <div>
-            {this.showLike()}
           </div>
         </section>
       );
