@@ -71,18 +71,16 @@ export const getUserPlaylists = (user_id) => (dispatch) => {
 
 export const createLike = (user_id, playlist_id) => (dispatch) => {
   return (
-    PlaylistUtil.submitLike(user_id, playlist_id).then((like) => (
-      dispatch(receiveLike(like))
-    ))
-  );
+    PlaylistUtil.submitLike(user_id, playlist_id).then(() => (
+      dispatch(getPlaylistLikes(playlist_id)))
+  ));
 };
 
-export const deleteLike = (like_id) => (dispatch) => {
+export const deleteLike = (like_id, playlist_id) => (dispatch) => {
   return (
-    PlaylistUtil.deleteLike(like_id).then((like) => (
-      dispatch(receiveLikes(like))
-    ))
-  );
+    PlaylistUtil.deleteLike(like_id).then(() => (
+      dispatch(getPlaylistLikes(playlist_id)))
+  ));
 };
 
 export const getPlaylistLikes = (user_id) => (dispatch) => {

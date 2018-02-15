@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     unload: () => dispatch(unload()),
     getUser: (id) => dispatch(getUser(id)),
     createLike: (user_id, playlist_id) => dispatch(createLike(user_id, playlist_id)),
-    deleteLike: (likeId) => dispatch(deleteLike(likeId)),
+    deleteLike: (likeId, userId) => dispatch(deleteLike(likeId, userId)),
     getPlaylistLikes: (playlist_id) => dispatch(getPlaylistLikes(playlist_id))
   };
 };

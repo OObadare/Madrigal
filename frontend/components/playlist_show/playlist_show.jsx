@@ -51,14 +51,13 @@ class PlaylistShow extends React.Component {
     const found = likeArr.find((like) => {
       return like.user_id === curr.id;
     });
-    this.props.deleteLike(found.id);
+    this.props.deleteLike(found.id, this.props.playlist.id);
   }
 
   playlistStats() {
     if (this.props.tracks.tracks !== undefined){
       const trackNum = Object.keys(this.props.tracks.tracks).length;
       if (typeof this.props.likes !== "undefined"){
-        debugger
         const likeNum = Object.keys(this.props.likes).length;
         return (
           <div> {trackNum} tracks | {likeNum} likes</div>
@@ -107,8 +106,9 @@ class PlaylistShow extends React.Component {
             {this.props.playlist.title}
             <br></br>
             <div id="playlistDescriptionHolder"> Notes: <br></br> {this.props.playlist.description}</div>
-            <div id="playlistStatsHolder"> {this.playlistStats()} </div>
-            {this.showLike()}
+            <div id="playlistStatsHolder"> {this.playlistStats()}
+                {this.showLike()}
+            </div>
             {this.listTracks()}
           </div>
           <div>

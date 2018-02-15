@@ -5,12 +5,11 @@ import {RECEIVE_LIKE, RECEIVE_LIKES} from "../actions/playlist_actions";
 
 const likeReducer = (state = {}, action) => {
   Object.freeze(state);
+  const likes = action.payload;
   switch(action.type) {
     case RECEIVE_LIKE:
-      const like = action.payload;
-      return merge({}, { like });
+      return merge({}, { likes });
     case RECEIVE_LIKES:
-      const likes = action.payload;
       return merge({}, { likes });
     default:
       return state;
