@@ -83,9 +83,9 @@ export const deleteLike = (like_id, playlist_id) => (dispatch) => {
   ));
 };
 
-export const getPlaylistLikes = (user_id) => (dispatch) => {
+export const getPlaylistLikes = (playlist_id) => (dispatch) => {
   return (
-    PlaylistUtil.fetchPlaylistLikes(user_id).then((likes) => (
+    PlaylistUtil.fetchPlaylistLikes(playlist_id).then((likes) => (
       dispatch(receiveLikes(likes))
     ))
   );

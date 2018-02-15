@@ -103,11 +103,11 @@ class PlaylistShow extends React.Component {
             <div id="overlay" onClick={this.props.loadNow}></div>
           </div>
           <div id="playlistText">
-            {this.props.playlist.title}
+            {this.props.playlist.title} {this.showLike()}
             <br></br>
             <div id="playlistDescriptionHolder"> Notes: <br></br> {this.props.playlist.description}</div>
             <div id="playlistStatsHolder"> {this.playlistStats()}
-                {this.showLike()}
+
             </div>
             {this.listTracks()}
           </div>
