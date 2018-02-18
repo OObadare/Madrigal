@@ -6,7 +6,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_many :playlists
+  # has_many :playlists
+  has_many :likes
   has_many :playlists, through: :likes
   after_initialize :ensure_session_token
 
