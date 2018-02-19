@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getUser } from '../../actions/user_actions';
 import { getUserPlaylists } from '../../actions/playlist_actions';
+import { getLikedPlaylists} from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getUser:(userId) => dispatch(getUser(userId)),
-    getUserPlaylists:(userId) => dispatch(getUserPlaylists(userId))
+    getUserPlaylists:(userId) => dispatch(getUserPlaylists(userId)),
+    getLikedPlaylists:(userId) => dispatch(getLikedPlaylists(userId))
   };
 };
 

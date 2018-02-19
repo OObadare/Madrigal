@@ -20,8 +20,10 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def index
-    if params[:user_id] != nil
+    if params[:user_id] != nil && params[:like] == nil
       @playlists = Playlist.where(user_id: params[:user_id].to_i)
+    elsif params[:user_id] && params[:like] != nil
+      @playlists = User.find_by_id(params[:user_id].to_i).playlists
     else
       @playlists = Playlist.all
     end

@@ -5,11 +5,14 @@ class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user
+      user: this.props.user,
+      userLikes: "",
+      userPlaylists: ""
     };
     this.getUser = this.props.getUser.bind(this);
     this.openPlaylists = this.openPlaylists.bind(this);
     this.playlistCount = this.playlistCount.bind(this);
+    this.swapLike = this.swapLike.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +26,10 @@ class User extends React.Component {
     this.props.getUserPlaylists(parseInt(this.props.match.params.id));
   }
 
+  swapLike() {
+    this.props.getLikedPlaylists(parseInt(this.props.match.params.id));
+  }
+
   playlistCount() {
     if (this.props.playlists.playlists) {
       return Object.keys(this.props.playlists.playlists).length;
@@ -31,14 +38,14 @@ class User extends React.Component {
     }
   }
 
-  openPlaylists(component) {
+  openPlaylists(e) {
     //if this.props.match.params.id (gives a string of the user param e.g. "5")
     //then I want to filter the shown playlists by that user_id, while if it's likes
     //I want to get the liked playlists from that user.
-    if (component === "user") {
-
-    } else if (component === "likes") {
-
+    if (e.currentTarget.id === "playlistcontent") {
+      this.props.getUserPlaylists(parseInt(this.props.match.params.id));
+    } else if (e.currentTarget.id === "likecontent") {
+      this.props.getLikedPlaylists(parseInt(this.props.match.params.id));
     }
 
   }
@@ -66,8 +73,8 @@ class User extends React.Component {
           </div>
         </section>
         <section className="userTabs">
-          <button id="playlistcontent" onClick={this.openPlaylists("user")} className="tabtoggle">PLAYLISTS</button>
-          <button id="likecontent" onClick={this.openPlaylists("likes")} className="tabtoggle">LIKES</button>
+          <button id="playlistcontent" onClick={this.openPlaylists} className="tabtoggle">PLAYLISTS</button>
+          <button id="likecontent" onClick={this.openPlaylists} className="tabtoggle">LIKES</button>
         </section>
         <section className="PlaylistIndex">
           <PlaylistIndexContainer />

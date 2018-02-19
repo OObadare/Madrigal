@@ -13,7 +13,7 @@ export const fetchLikedPlaylists = (userid) => {
       method:'GET',
       url: `api/users/${userid}/playlists`,
       data: {
-        userid: userid
+        like: true
       }
     })
   );
