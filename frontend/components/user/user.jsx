@@ -13,12 +13,16 @@ class User extends React.Component {
     this.openPlaylists = this.openPlaylists.bind(this);
     this.playlistCount = this.playlistCount.bind(this);
     this.swapLike = this.swapLike.bind(this);
+    this.likeCount = this.likeCount.bind(this);
   }
 
   componentDidMount() {
     this.props.getUser(parseInt(this.props.match.params.id));
+    this.props.getLikedNum(parseInt(this.props.match.params.id));
+    this.props.getPlaylistNum(parseInt(this.props.match.params.id));
     this.setState({
-      user: this.props.users.user
+      user: this.props.users.user,
+      userPlaylists: this.props.playlists.playlists
     });
   }
 
@@ -31,8 +35,16 @@ class User extends React.Component {
   }
 
   playlistCount() {
-    if (this.props.playlists.playlists) {
-      return Object.keys(this.props.playlists.playlists).length;
+    if (this.props.userPlaylists) {
+      return Object.keys(this.props.userPlaylists).length;
+    } else {
+      return "0 :(";
+    }
+  }
+
+  likeCount() {
+    if (this.props.userLikes) {
+      return Object.keys(this.props.userLikes).length;
     } else {
       return "0 :(";
     }
@@ -63,11 +75,11 @@ class User extends React.Component {
               </span>
               <div id="count">
                 <span id="followedcount"> {this.playlistCount()} </span>
-                <span id="followcount"> 0 </span>
+                <span id="followcount"> {this.likeCount()} </span>
               </div>
               <div id="follow-text">
                 <span id="followed"> Playlists </span>
-                <span id="followers"> Followers </span>
+                <span id="followers"> Likes </span>
               </div>
             </div>
           </div>

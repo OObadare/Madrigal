@@ -18,3 +18,27 @@ export const fetchLikedPlaylists = (userid) => {
     })
   );
 };
+
+export const fetchLikes = (userid) => {
+  return (
+    $.ajax({
+      method:'GET',
+      url: `api/likes`,
+      data: {
+        user_id: userid
+      }
+    })
+  );
+};
+
+export const fetchPlaylists = (userid) => {
+  return (
+    $.ajax({
+      method:'GET',
+      url: `api/playlists`,
+      data: {
+        user_id: userid
+      }
+    })
+  );
+};
