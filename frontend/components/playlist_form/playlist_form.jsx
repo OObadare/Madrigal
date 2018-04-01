@@ -77,7 +77,7 @@ class PlaylistForm extends React.Component {
               />
             <br/>
             <input id="art" type="file" onChange={this.updateFile} className="playlist-input" />
-            <label htmlFor="art">Choose a file</label>
+            <label htmlFor="art">Choose an image for album art! </label>
             <br/>
             <input id="submit" type="submit" value="Publish" onClick={this.handleSubmit}/>
           </div>
