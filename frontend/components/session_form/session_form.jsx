@@ -14,9 +14,15 @@ class SessionForm extends React.Component {
     this.emailInput = this.emailInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.logsignswap = this.swapLogSign.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
+    this.guestUser = this.guestUser.bind(this);
+    this.guestPass = this.guestPass.bind(this);
   }
 
 
+  componentDidMount() {
+    this. guestLogin();
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
@@ -64,6 +70,34 @@ class SessionForm extends React.Component {
       this.props.show(<SessionFormContainer formType="signuppath"/>);
     } else {
       this.props.show(<SessionFormContainer formType="loginpath"/>);
+    }
+  }
+
+  guestUser() {
+    const guestUsername = "Guest";
+    var userSpace = document.getElementById("usernameinput").value;
+    document.getElementById("usernameinput").value += (guestUsername[userSpace.length]);
+  }
+
+  guestPass() {
+    const guestPassword = "guestPass";
+    var passSpace = document.getElementById("passwordinput").value;
+    document.getElementById("passwordinput").value += (guestPassword[passSpace.length]);
+  }
+
+  guestLogin() {
+    const guestPassword = "Password";
+    if (this.props.formType === "guestLogin"){
+      while (document.getElementById("usernameinput").value !== "Guest") {
+        this.guestUser();
+      }
+      while (document.getElementById("passwordinput").value !== "guestPass") {
+        this.guestPass();
+      };
+      this.setState((prevState, props) => {
+        return {username: "Guest",
+        password:"guestPass"};
+      });
     }
   }
 

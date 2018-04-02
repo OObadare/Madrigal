@@ -41,6 +41,8 @@ class Greeting extends React.Component {
         <div id="GreetingHolder">
           <Link to={"/"} id="Homelink" >Madrigal</Link>
           <div className="login-signup">
+            <button onClick={this.handleModal} id="guestLogin"> Guest Login </button>
+            &nbsp;
             <button onClick={this.handleModal} id="loginpath"> Log in</button>
             &nbsp;
             <button onClick={this.handleModal} id="signuppath"> Sign Up</button>
