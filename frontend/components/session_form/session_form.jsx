@@ -94,10 +94,15 @@ class SessionForm extends React.Component {
       while (document.getElementById("passwordinput").value !== "guestPass") {
         this.guestPass();
       };
-      this.setState((prevState, props) => {
-        return {username: "Guest",
-        password:"guestPass"};
-      });
+      this.setState(
+        {username: "Guest", password:"guestPass"}, () => {
+          this.props.login(this.state);
+          this.props.hideModal;
+        }
+      );
+      // debugger
+      // const user = this.state;
+      // setTimeout(this.props.login(user), 2000);
     }
   }
 
