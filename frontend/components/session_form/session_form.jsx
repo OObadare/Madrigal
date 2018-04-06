@@ -100,9 +100,6 @@ class SessionForm extends React.Component {
           this.props.hideModal;
         }
       );
-      // debugger
-      // const user = this.state;
-      // setTimeout(this.props.login(user), 2000);
     }
   }
 
