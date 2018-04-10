@@ -464,6 +464,7 @@ header nav a{
 }
 
 .playlist-form-box {
+  height: 400px;
   background-color: white;
   display: flex;
   justify-content: space-around;
@@ -501,7 +502,7 @@ header nav a{
 }
 
 .artcontainer {
-  height: 400px;
+  height: 380px;
   width: 396px;
   background-size: 100%;
   background-image: image-url('cover.1024.jpeg');
