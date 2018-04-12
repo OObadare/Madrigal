@@ -129,6 +129,7 @@ class TrackIndex extends React.Component {
         </h3>
         <div id="track-index-holder">
           <div id="tracklist-holder">
+            <div id="tracklist-head"> Tracklist - Choose your tracks. </div>
             <TracklistCreationContainer parentTracklists="{this.parentTracklists}"/>
           </div>
           <div id="upload-tracks">

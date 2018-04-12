@@ -580,6 +580,13 @@ label {
   height: 30px;
 }
 
+#tracklist-head {
+  font-weight: bold;
+  color: slategrey;
+  background-color: rgb(250, 250, 250);
+  padding: 25px 15px;
+}
+
 #tracklist-holder {
   background-color: white;
   border: 1px solid lightgrey;
@@ -587,8 +594,18 @@ label {
   width: 28%
 }
 
+#tracklist-info-holder {
+  display: flex;
+  align-items: center;
+}
 
-#tracklists {
+#tracknumber {
+  color: slategrey;
+  font-size: 20px;
+  margin: 5px;
+}
+#tracklist-div {
+  // display: flex;
 }
 
 #song {
