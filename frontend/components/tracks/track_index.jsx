@@ -160,6 +160,7 @@ class TrackIndex extends React.Component {
             <input id="submit-track" type="submit" value="Add Track to library!" onClick={this.handleSubmit}/>
           </div>
           <div id="track-index">
+            <div id="crate-head"> MY CRATE </div>
             {tracks}
           </div>
         </div>

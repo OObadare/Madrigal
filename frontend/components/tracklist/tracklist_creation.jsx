@@ -45,12 +45,13 @@ class TracklistCreation extends React.Component {
     const that = this;
     return this.state.trackIds.map((key) =>{
       if (that.props.tracks[key]) {
+        const tracknum = that.state.trackIds.findIndex((element) => {
+          return element == key;
+        }) + 1;
         return (
           <div id="tracklist-info-holder" key={key}>
             <span id = "tracknumber">
-              {that.state.trackIds.findIndex((element) => {
-                return element == key;
-              }) + 1}
+              {tracknum}
             </span>
             <div id="tracklist-div" key={key}>
               <div id="title-div">
