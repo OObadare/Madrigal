@@ -56,11 +56,12 @@ class TracklistCreation extends React.Component {
             <div id="tracklist-div" key={key}>
               <div id="title-div">
                 {that.props.tracks[key].title} <span id="artist-span">{that.props.tracks[key].artist}</span>
+              </div>
+              <div id="album-div">
+                Album: <span id="album-span"> {that.props.tracks[key].album} </span>
+              </div>
             </div>
-            <div id="album-div">
-              Album: <span id="album-span"> {that.props.tracks[key].album} </span>
-          </div>
-        </div>
+            <span id="remove-button-div"></span>
           </div>
         );
       }
