@@ -9,8 +9,8 @@ class TracklistCreation extends React.Component {
       tracks: ''
     };
 
-  // this.showTracklists = this.showTrackLists.bind(this);
   this.idsToTracks = this.idsToTracks.bind(this);
+  this.removeTrack = this.removeTrack.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +46,6 @@ class TracklistCreation extends React.Component {
     return this.state.trackIds.map((key) =>{
       if (that.props.tracks[key]) {
         const tracknum = that.state.trackIds.findIndex((element) => {
-          debugger
           return element == key;
         }) + 1;
         return (
@@ -67,6 +66,16 @@ class TracklistCreation extends React.Component {
         );
       }
     });
+  }
+
+  removeTrack(id, e) {
+    const removeIndex = this.state.trackIds.indexOf(id);
+    var dupTracks = this.state.trackIds;
+    dupTracks.splice(removeIndex, 1);
+    this.setState({
+      trackIds: dupTracks
+    });
+    debugger
   }
 
 
