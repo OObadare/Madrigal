@@ -46,6 +46,7 @@ class TracklistCreation extends React.Component {
     return this.state.trackIds.map((key) =>{
       if (that.props.tracks[key]) {
         const tracknum = that.state.trackIds.findIndex((element) => {
+          debugger
           return element == key;
         }) + 1;
         return (
@@ -61,7 +62,7 @@ class TracklistCreation extends React.Component {
                 Album: <span id="album-span"> {that.props.tracks[key].album} </span>
               </div>
             </div>
-            <span id="remove-button-div"></span>
+            <span id="remove-button-div" onClick={(e) => this.removeTrack(key, e)}></span>
           </div>
         );
       }
