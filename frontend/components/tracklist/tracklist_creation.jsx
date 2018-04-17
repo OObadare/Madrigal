@@ -75,7 +75,6 @@ class TracklistCreation extends React.Component {
     this.setState({
       trackIds: dupTracks
     });
-    debugger
   }
 
 
