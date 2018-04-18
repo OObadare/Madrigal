@@ -14,7 +14,7 @@ class MusicPlayer extends React.Component {
     this.handleEnd = this.handleEnd.bind(this);
   }
 
-  componentWillUpdate() {
+  componentWillReceiveProps() {
     if (this.props.load) {
       this.props.unload();
       this.handleLoad();
@@ -46,6 +46,7 @@ class MusicPlayer extends React.Component {
 
   render() {
     if (this.state.playing) {
+      debugger
       return (
         <section id="MusicPlayerHolder">
           <span id="currentTrackInfo">
