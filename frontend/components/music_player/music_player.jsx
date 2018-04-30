@@ -46,7 +46,6 @@ class MusicPlayer extends React.Component {
 
   render() {
     if (this.state.playing) {
-      debugger
       return (
         <section id="MusicPlayerHolder">
           <span id="currentTrackInfo">
