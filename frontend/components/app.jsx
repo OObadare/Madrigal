@@ -17,7 +17,7 @@ import {
 
 
 const App = () => (
-  <div>
+  <div >
     <ModalContainer />
     <header>
       <GreetingContainer />
