@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AudioPlayer from "react-responsive-audio-player";
 
 class MusicPlayer extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class MusicPlayer extends React.Component {
       playing: "",
       tracks: [],
       playidx: "",
-      playlist: ""
+      playlist: "",
+      formattedPlaylist: []
     };
     this.handleLoad = this.handleLoad.bind(this);
     this.handleEnd = this.handleEnd.bind(this);
@@ -35,12 +37,18 @@ class MusicPlayer extends React.Component {
   handleLoad(e) {
     // e.preventDefault;
     //can't access element by trying to hit the zeroth index
+    var playlistArr = [];
     const trackkeys = Object.keys(this.props.tracks);
-    this.setState({playlist: this.props.playlist, tracks: this.props.tracks, playing: this.props.tracks[trackkeys[0]], playidx: 0}, function(){
+    trackkeys.forEach((key) => {
+      var newTrack = {"url": this.props.tracks[key].song, "title":this.props.tracks[key].title, "artist":this.props.tracks[key].artist, "album": this.props.tracks[key].album};
+      playlistArr.push(newTrack);
+    });
+    this.setState({playlist: this.props.playlist, tracks: this.props.tracks, playing: this.props.tracks[trackkeys[0]], playidx: 0, formattedPlaylist: playlistArr}, function(){
       this.refs.audio.pause();
       this.refs.audio.load();
       this.refs.audio.play();
     });
+    debugger
 
   }
 

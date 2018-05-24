@@ -11,6 +11,7 @@
     "react-dom": "^16.2.0",
     "react-modal": "^3.1.10",
     "react-redux": "^5.0.6",
+    "react-responsive-audio-player": "^1.3.1",
     "react-router-dom": "^4.2.2",
     "react-soundplayer": "^1.0.4",
     "redux": "^3.7.2",
@@ -18,7 +19,7 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
-   "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
