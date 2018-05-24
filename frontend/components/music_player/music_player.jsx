@@ -48,6 +48,7 @@ class MusicPlayer extends React.Component {
       // this.refs.audio.load();
       // this.refs.audio.play();
     });
+    // debugger
 
   }
 
@@ -58,11 +59,7 @@ class MusicPlayer extends React.Component {
           <span id="currentTrackInfo">
             <img id="thumbnail" src={this.state.playlist.art}></img>
             <span id="TrackTitleAlbumArtist">
-              <ul id="infolist">
-                <li>Title: {this.state.playing.title}</li>
-                <li>Artist: {this.state.playing.artist}</li>
-                <li>Album: {this.state.playing.album}</li>
-              </ul>
+              <div id="playlistTitle">{this.state.playlist.title}</div>
             </span>
           </span>
           <AudioPlayer id="PlaylistPlayer" playlist={this.state.formattedPlaylist} autoPlay="true" >
