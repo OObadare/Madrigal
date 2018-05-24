@@ -40,20 +40,19 @@ class MusicPlayer extends React.Component {
     var playlistArr = [];
     const trackkeys = Object.keys(this.props.tracks);
     trackkeys.forEach((key) => {
-      var newTrack = {"url": this.props.tracks[key].song, "title":this.props.tracks[key].title, "artist":this.props.tracks[key].artist, "album": this.props.tracks[key].album};
+      var newTrack = {url: this.props.tracks[key].song, title:this.props.tracks[key].title, artist:this.props.tracks[key].artist, album: this.props.tracks[key].album};
       playlistArr.push(newTrack);
     });
     this.setState({playlist: this.props.playlist, tracks: this.props.tracks, playing: this.props.tracks[trackkeys[0]], playidx: 0, formattedPlaylist: playlistArr}, function(){
-      this.refs.audio.pause();
-      this.refs.audio.load();
-      this.refs.audio.play();
+      // this.refs.audio.pause();
+      // this.refs.audio.load();
+      // this.refs.audio.play();
     });
-    debugger
 
   }
 
   render() {
-    if (this.state.playing) {
+    if (this.state.formattedPlaylist.length > 0) {
       return (
         <section id="MusicPlayerHolder">
           <span id="currentTrackInfo">
@@ -66,9 +65,9 @@ class MusicPlayer extends React.Component {
               </ul>
             </span>
           </span>
-          <audio id="PlaylistPlayer" ref ="audio" key={this.state.playing.id} controls="controls" controlsList="nodownload" autoPlay onEnded={this.handleEnd} >
-            <source src={this.state.playing.song} type="audio/mpeg" />
-          </audio>
+          <AudioPlayer id="PlaylistPlayer" playlist={this.state.formattedPlaylist} autoPlay="true" >
+
+          </AudioPlayer>
         </section>
       );
     } else {
