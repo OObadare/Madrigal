@@ -763,10 +763,11 @@ font-weight: normal;
   width: 400px;
   opacity: 0;
   transition: .5s ease;
-  background-image: image-url("play-button.png");
+  background-image: image-url("white-line-play.png");
   background-repeat: no-repeat;
-  background-color: lightgray;
+  background-color: black;
   background-position: center;
+  background-size: contain;
 }
 
 #playlistArt {
@@ -860,7 +861,7 @@ button span {
   height: 70px;
   width: 20%;
   line-height: 70px;
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(50, 50, 50);
   text-align: center;
   vertical-align: middle;
 }
@@ -889,9 +890,9 @@ button span {
   width: 80%;
   height: 40px;
   bottom: 0px;
-  background-color: #646464;
+  // background-color: #646464;
 }
 
 .audio_button {
-  background-color: #646464;
+  // background-color: #646464;
 }
